@@ -1,0 +1,1 @@
+Здесь будет фронтенд дипломной работы, а пока — сгенерированный плагином макет в Фигме и [чеклист](https://code.s3.yandex.net/web-developer/static/new-program/web-diploma-criteria-2.0/index.html)
