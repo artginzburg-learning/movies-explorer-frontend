@@ -6,7 +6,7 @@
 - [Чеклист 16](https://code.s3.yandex.net/web-developer/static/new-program/web-diploma-criteria-2.0/index.html)
 - Публичный IP: `62.84.115.80`
 - Проект MoviesExplorer: https://deeplomka.nomoredomains.club (разрабатывается)
-- [Макет в Figma](Diploma%20(Copy).fig)
+- [Макет в Figma](misc/Diploma%20(Copy).fig)
 - API проекта MoviesExplorer: https://api.deeplomka.nomoredomains.club
 
 <br />
