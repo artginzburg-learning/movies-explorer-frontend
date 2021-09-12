@@ -9,6 +9,8 @@
 - [Макет в Figma](misc/Diploma%20(Copy).fig)
 - API проекта MoviesExplorer: https://api.deeplomka.nomoredomains.club
 
+![Diploma Plan](misc/diploma_plan.png)
+
 <br />
 <br />
 
