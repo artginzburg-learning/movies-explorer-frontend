@@ -1,3 +1,15 @@
+const birthday = new Date(2002, 3, 25);
+
+function getAge(birthDate) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 function AboutMe() {
   return (
     <section className="aboutme" id="student">
@@ -5,7 +17,7 @@ function AboutMe() {
         <h2>Студент</h2>
 
         <h3>Артур</h3>
-        <p>Фронтенд-разработчик, 19 лет</p>
+        <p>Фронтенд-разработчик, {getAge(birthday)} лет</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan volutpat
           sollicitudin. Nullam eget mauris ante. Nullam id mattis sapien. Praesent mollis, diam eget
