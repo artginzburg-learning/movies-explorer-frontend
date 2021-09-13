@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    branches: [ main ]
+    branches: [main, level-2]
 
   workflow_dispatch:
 jobs:
