@@ -1,0 +1,22 @@
+.navtab {
+  background-color: #272727;
+
+  min-height: 70px;
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  position: sticky;
+  top: 0;
+}
+
+.navtab__link {
+  color: inherit;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 123%;
+  text-decoration-line: underline;
+}

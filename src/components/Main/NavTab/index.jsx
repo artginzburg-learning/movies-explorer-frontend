@@ -1,9 +1,17 @@
+import './NavTab.css';
+
 function NavTab() {
   return (
     <nav className="navtab">
-      <a href="#about">О проекте</a>
-      <a href="#techs">Технологии</a>
-      <a href="#student">Студент</a>
+      <a className="navtab__link" href="#about">
+        О проекте
+      </a>
+      <a className="navtab__link" href="#techs">
+        Технологии
+      </a>
+      <a className="navtab__link" href="#student">
+        Студент
+      </a>
     </nav>
   );
 }

@@ -1,3 +1,5 @@
+import './AboutProject.css';
+
 function AboutProjectColumn({ heading, children }) {
   return (
     <li className="aboutproject__column">
@@ -10,7 +12,7 @@ function AboutProjectColumn({ heading, children }) {
 function AboutProject() {
   return (
     <section className="aboutproject" id="about">
-      <article className="aboutproject__content">
+      <article>
         <h2 className="aboutproject__title">О проекте</h2>
 
         <ul className="aboutproject__columns">
@@ -26,12 +28,12 @@ function AboutProject() {
 
         <ul className="aboutproject__plan">
           <li className="aboutproject__plan-segment">
-            <p>3 дня</p>
-            <p>Back-end</p>
+            <p className="aboutproject__plan-heading">3 дня</p>
+            <p className="aboutproject__plan-text">Back-end</p>
           </li>
-          <li>
-            <p>4 недели</p>
-            <p>Front-end</p>
+          <li className="aboutproject__plan-segment">
+            <p className="aboutproject__plan-heading">4 недели</p>
+            <p className="aboutproject__plan-text">Front-end</p>
           </li>
         </ul>
       </article>

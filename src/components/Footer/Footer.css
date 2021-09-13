@@ -1,0 +1,32 @@
+.footer {
+  padding: 79px 70px 0;
+}
+
+.footer__title {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+
+  color: #8b8b8b;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  border-top: 1px solid #424242;
+}
+
+.footer__link {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
