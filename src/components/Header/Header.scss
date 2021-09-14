@@ -1,12 +1,15 @@
 @import '../../styles/shared';
 @import '../../styles/colors';
 
+$header-section-offset: 16px;
+$header-logo-size: 38px;
+
 .header {
   @include default-padding;
 
   padding: {
-    top: 16px;
-    bottom: 16px;
+    top: $header-section-offset;
+    bottom: $header-section-offset;
   }
 
   position: fixed;
@@ -35,8 +38,8 @@
   }
 
   &__logo {
-    max-width: 38px;
-    max-height: 38px;
+    max-width: $header-logo-size;
+    max-height: $header-logo-size;
   }
 
   &__navigation {
