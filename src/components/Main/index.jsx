@@ -1,5 +1,6 @@
 import Footer from '../Footer';
 import Header from '../Header';
+
 import AboutMe from './AboutMe';
 import AboutProject from './AboutProject';
 import NavTab from './NavTab';
@@ -11,7 +12,7 @@ function Main() {
   return (
     <>
       <Header />
-      <main className="content">
+      <main>
         <Promo />
         <NavTab />
         <AboutProject />
