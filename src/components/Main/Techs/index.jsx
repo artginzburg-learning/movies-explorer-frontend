@@ -1,4 +1,4 @@
-import './Techs.css';
+import './Techs.scss';
 
 function Techs() {
   return (

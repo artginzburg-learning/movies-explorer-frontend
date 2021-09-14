@@ -1,4 +1,4 @@
-import './AboutProject.css';
+import './AboutProject.scss';
 
 function AboutProjectColumn({ heading, children }) {
   return (

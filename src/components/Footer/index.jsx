@@ -1,5 +1,5 @@
 import { author, repository } from '../../../package.json';
-import './Footer.css';
+import './Footer.scss';
 
 const currentYear = new Date().getFullYear();
 

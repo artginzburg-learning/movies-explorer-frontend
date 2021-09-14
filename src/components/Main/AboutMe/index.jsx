@@ -1,5 +1,5 @@
 import student from '../../../images/student.jpg';
-import './AboutMe.css';
+import './AboutMe.scss';
 
 const birthday = new Date(2002, 3, 25);
 

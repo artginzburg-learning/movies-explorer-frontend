@@ -1,6 +1,6 @@
 import { repository } from '../../../package.json';
 import logo from '../../images/logo.svg';
-import './Header.css';
+import './Header.scss';
 
 const loggedIn = false;
 
