@@ -1,6 +1,7 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
 @import '../../../styles/landing';
+@import '../../../styles/gaps';
 
 .aboutme {
   padding: 110px 70px 100px;
@@ -33,28 +34,27 @@
   }
 
   &__heading {
-    @include heading-shared;
-
-    font-size: 50px;
-    line-height: 116%;
-    letter-spacing: -0.04em;
+    @include landing-title;
   }
 
   &__subheading {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 111%;
+    @include aboutme-subheading;
 
+    font-weight: 500;
     margin: 0;
   }
 
   &__text {
     margin: 0;
+
+    font-size: 14px;
+    line-height: 157%;
   }
 
   &__links {
+    @include default-gap-small;
+
     display: flex;
-    gap: 20px;
 
     position: absolute;
     bottom: 0;
@@ -63,9 +63,8 @@
 
   &__link {
     @include link-shared;
+    @include landing-list-item-small;
 
     font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
   }
 }

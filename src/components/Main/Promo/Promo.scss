@@ -1,5 +1,6 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
+@import '../../../styles/landing';
 
 .promo {
   background: {
@@ -19,13 +20,9 @@
   justify-content: center;
 
   &__title {
-    @include heading-shared;
+    @include landing-title;
 
-    font-size: 50px;
-    line-height: 116%;
     text-align: center;
-    letter-spacing: -0.04em;
-
     max-width: 730px;
   }
 }

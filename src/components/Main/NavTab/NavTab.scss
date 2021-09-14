@@ -1,7 +1,10 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
+@import '../../../styles/gaps';
 
 .navtab {
+  @include default-gap-medium;
+
   background-color: $landing-1;
 
   min-height: 70px;
@@ -10,7 +13,6 @@
   grid-auto-flow: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
 
   position: sticky;
   top: 0;

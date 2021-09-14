@@ -1,14 +1,13 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
+@import '../../../styles/landing';
 
 .portfolio {
   padding: 0 70px calc(125px - 20px);
 
   &__title {
     @include heading-shared;
-
-    font-size: 18px;
-    line-height: 111%;
+    @include aboutme-subheading;
 
     color: $font-2;
   }
@@ -31,13 +30,13 @@
 
   &__link {
     @include link-shared;
+    @include default-letter-spacing;
 
     display: block;
     position: relative;
 
     font-size: 30px;
     line-height: 167%;
-    letter-spacing: -0.04em;
 
     &::after {
       position: absolute;

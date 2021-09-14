@@ -1,6 +1,7 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
 @import '../../../styles/landing';
+@import '../../../styles/gaps';
 
 .aboutproject {
   padding: 110px 70px;
@@ -11,10 +12,11 @@
   }
 
   &__columns {
+    @include default-gap-medium;
+
     list-style-type: none;
     display: grid;
     grid-auto-flow: column;
-    gap: 40px;
     padding: 70px 0 110px;
   }
 
@@ -23,14 +25,11 @@
 
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: -0.04em;
+    @include default-letter-spacing;
   }
 
   &__text {
-    font-size: 14px;
-    line-height: 143%;
-    margin: 0;
-    padding-top: 26px;
+    @include landing-text;
   }
 
   &__plan {
@@ -60,8 +59,8 @@
     }
 
     &-heading {
-      font-size: 14px;
-      line-height: 17px;
+      @include landing-list-item-small;
+
       min-height: 36px;
 
       margin: 0;

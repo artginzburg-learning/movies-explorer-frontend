@@ -1,5 +1,6 @@
 @import '../../styles/shared';
 @import '../../styles/colors';
+@import '../../styles/gaps';
 
 .footer {
   padding: 79px 70px 0;
@@ -28,7 +29,8 @@
   }
 
   &__links {
+    @include default-gap-small;
+
     display: flex;
-    gap: 20px;
   }
 }
