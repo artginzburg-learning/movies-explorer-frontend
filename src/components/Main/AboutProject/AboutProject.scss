@@ -1,19 +1,13 @@
 @import '../../../styles/shared';
 @import '../../../styles/colors';
+@import '../../../styles/landing';
 
 .aboutproject {
   padding: 110px 70px;
   font-size: 0;
 
   &__title {
-    @include heading-shared;
-
-    font-size: 22px;
-    line-height: 27px;
-    letter-spacing: -0.04em;
-
-    padding-bottom: 23px;
-    border-bottom: 1px solid $stroke-landing;
+    @include landing-heading;
   }
 
   &__columns {
