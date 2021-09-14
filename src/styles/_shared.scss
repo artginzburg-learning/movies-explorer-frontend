@@ -1,0 +1,10 @@
+@mixin link-shared {
+  color: inherit;
+  text-decoration-line: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin heading-shared {
+  font-weight: normal;
+  margin: 0;
+}

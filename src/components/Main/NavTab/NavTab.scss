@@ -1,5 +1,8 @@
+@import '../../../styles/shared';
+@import '../../../styles/colors';
+
 .navtab {
-  background-color: #272727;
+  background-color: $landing-1;
 
   min-height: 70px;
 
@@ -12,12 +15,12 @@
   position: sticky;
   top: 0;
   z-index: 1;
-}
 
-.navtab__link {
-  color: inherit;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 123%;
-  text-decoration-line: underline;
+  &__link {
+    @include link-shared;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 123%;
+  }
 }

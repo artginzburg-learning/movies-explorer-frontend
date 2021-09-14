@@ -1,10 +1,12 @@
+@import '../../styles/colors';
+
 .page {
-  background: #202020;
+  background: $global-background;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  color: #fff;
+  color: $global-text;
 
   min-width: 320px;
   margin: 0 auto;

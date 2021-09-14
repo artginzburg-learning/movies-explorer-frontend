@@ -1,8 +1,13 @@
+@import '../../../styles/shared';
+@import '../../../styles/colors';
+
 .promo {
-  background-color: #073042;
-  background-image: url('../../../images/landing-logo.svg');
-  background-repeat: no-repeat;
-  background-position: center;
+  background: {
+    color: $promo-only;
+    image: url('../../../images/landing-logo.svg');
+    repeat: no-repeat;
+    position: center;
+  }
 
   height: 100vh;
   min-height: 598px;
@@ -12,15 +17,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.promo__title {
-  font-weight: normal;
-  font-size: 50px;
-  line-height: 116%;
-  text-align: center;
-  letter-spacing: -0.04em;
+  &__title {
+    @include heading-shared;
 
-  margin: 0;
-  max-width: 730px;
+    font-size: 50px;
+    line-height: 116%;
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    max-width: 730px;
+  }
 }
