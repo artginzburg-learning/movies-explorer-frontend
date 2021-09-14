@@ -2,8 +2,16 @@
 @import '../../../styles/colors';
 @import '../../../styles/landing';
 
+$techs-section-offset: 100px;
+
 .techs {
-  padding: 100px 70px;
+  @include default-padding-landing;
+
+  padding: {
+    top: $techs-section-offset;
+    bottom: $techs-section-offset;
+  }
+
   background-color: $landing-1;
 
   &__title {
@@ -26,13 +34,11 @@
 
     text-align: center;
 
-    padding-bottom: 100px;
+    padding-bottom: $techs-section-offset;
   }
 
   &__list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
+    @include reset-list-style;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(87px, auto));

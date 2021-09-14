@@ -4,7 +4,12 @@
 @import '../../../styles/gaps';
 
 .aboutme {
-  padding: 110px 70px 100px;
+  @include default-padding-landing;
+
+  padding: {
+    top: 110px;
+    bottom: 100px;
+  }
 
   &__title {
     @include landing-heading;

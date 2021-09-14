@@ -2,7 +2,7 @@ import { repository } from '../../../package.json';
 import logo from '../../images/logo.svg';
 import './Header.scss';
 
-const loggedIn = false;
+const loggedIn = true;
 
 function Header() {
   return (

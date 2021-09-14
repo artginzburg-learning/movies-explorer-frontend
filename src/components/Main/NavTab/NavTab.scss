@@ -21,6 +21,8 @@
   &__link {
     @include link-shared;
 
+    text-decoration-line: underline;
+
     font-weight: 500;
     font-size: 13px;
     line-height: 123%;

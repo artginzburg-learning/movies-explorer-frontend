@@ -2,13 +2,19 @@
 @import '../../styles/colors';
 
 .header {
+  @include default-padding;
+
+  padding: {
+    top: 16px;
+    bottom: 16px;
+  }
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 2;
 
-  padding: 16px 70px;
   max-height: 70px;
   box-sizing: border-box;
 

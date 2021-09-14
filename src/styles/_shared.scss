@@ -8,3 +8,25 @@
   font-weight: normal;
   margin: 0;
 }
+
+@mixin reset-list-style {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+$_default-padding-landing: 70px;
+@mixin default-padding-landing {
+  padding: {
+    left: $_default-padding-landing;
+    right: $_default-padding-landing;
+  }
+}
+
+$_default-padding: 70px;
+@mixin default-padding {
+  padding: {
+    left: $_default-padding;
+    right: $_default-padding;
+  }
+}

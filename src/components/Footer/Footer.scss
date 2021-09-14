@@ -2,8 +2,12 @@
 @import '../../styles/colors';
 @import '../../styles/gaps';
 
+$footer-padding: 20px;
+
 .footer {
-  padding: 79px 70px 0;
+  @include default-padding;
+
+  padding-top: 79px;
 
   &__title {
     @include heading-shared;
@@ -13,13 +17,13 @@
     text-align: center;
 
     color: $font-2;
-    padding-bottom: 20px;
+    padding-bottom: $footer-padding;
   }
 
   &__copyright {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: $footer-padding 0;
 
     border-top: 1px solid $stroke-2;
   }

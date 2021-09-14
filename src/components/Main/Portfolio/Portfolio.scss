@@ -2,8 +2,12 @@
 @import '../../../styles/colors';
 @import '../../../styles/landing';
 
+$portfolio-padding: 20px;
+
 .portfolio {
-  padding: 0 70px calc(125px - 20px);
+  @include default-padding-landing;
+
+  padding-bottom: calc(125px - $portfolio-padding);
 
   &__title {
     @include heading-shared;
@@ -13,12 +17,12 @@
   }
 
   &__links {
-    list-style-type: none;
-    margin: 0;
-    padding: 30px 0 0;
+    @include reset-list-style;
+
+    padding-top: 30px;
 
     &-item {
-      padding: 20px 0;
+      padding: $portfolio-padding 0;
       box-sizing: border-box;
       border-bottom: 1px solid $stroke-2;
 

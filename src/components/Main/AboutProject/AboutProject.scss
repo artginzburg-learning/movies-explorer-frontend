@@ -3,8 +3,16 @@
 @import '../../../styles/landing';
 @import '../../../styles/gaps';
 
+$aboutproject-section-offset: 110px;
+
 .aboutproject {
-  padding: 110px 70px;
+  @include default-padding-landing;
+
+  padding: {
+    top: $aboutproject-section-offset;
+    bottom: $aboutproject-section-offset;
+  }
+
   font-size: 0;
 
   &__title {
@@ -12,12 +20,16 @@
   }
 
   &__columns {
+    @include reset-list-style;
     @include default-gap-medium;
 
-    list-style-type: none;
     display: grid;
     grid-auto-flow: column;
-    padding: 70px 0 110px;
+
+    padding: {
+      top: 70px;
+      bottom: $aboutproject-section-offset;
+    }
   }
 
   &__heading {
@@ -33,7 +45,8 @@
   }
 
   &__plan {
-    padding: 0;
+    @include reset-list-style;
+
     width: 100%;
     display: flex;
 
