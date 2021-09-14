@@ -10,8 +10,10 @@ function Techs() {
           На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
         </p>
         <ul className="techs__list">
-          {['HTML', 'CSS', 'JS', 'React', 'Git', 'Express.js', 'mongoDB'].map((item) => (
-            <li className="techs__list-item">{item}</li>
+          {['HTML', 'CSS', 'JS', 'React', 'Git', 'Express.js', 'mongoDB'].map((item, index) => (
+            <li className="techs__list-item" key={index}>
+              {item}
+            </li>
           ))}
         </ul>
       </article>
