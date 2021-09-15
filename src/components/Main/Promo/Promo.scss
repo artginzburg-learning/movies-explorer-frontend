@@ -3,13 +3,20 @@
 @import '../../../styles/landing';
 
 .promo {
-  @extend %default-padding-landing;
+  padding: {
+    left: 14px;
+    right: 14px;
+  }
 
   background: {
     color: $promo-only;
     image: url('../../../images/landing-logo.svg');
     repeat: no-repeat;
     position: center;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    background-size: 77.5%;
   }
 
   height: 100vh;
@@ -21,7 +28,18 @@
   justify-content: center;
 
   &__title {
-    @include landing-title;
+    @include heading-shared;
+
+    font-size: 50px;
+    line-height: 116%;
+    @include default-letter-spacing;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 31px;
+      line-height: 126%;
+    }
+
+    text-shadow: 0 0 6px #000;
 
     text-align: center;
     max-width: 730px;

@@ -73,7 +73,6 @@ $_default-padding-mobile: 12px;
     right: $_default-padding;
   }
 
-  // for 768px design
   @media screen and (max-width: $breakpoint-tablet) {
     padding: {
       left: $_default-padding-tablet;
@@ -81,7 +80,6 @@ $_default-padding-mobile: 12px;
     }
   }
 
-  // for 320px design
   @media screen and (max-width: $breakpoint-mobile) {
     padding: {
       left: $_default-padding-mobile;
