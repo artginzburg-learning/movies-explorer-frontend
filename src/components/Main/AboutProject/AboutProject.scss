@@ -6,7 +6,7 @@
 $aboutproject-section-offset: 110px;
 
 .aboutproject {
-  @include default-padding-landing;
+  @extend %default-padding-landing;
 
   padding: {
     top: $aboutproject-section-offset;

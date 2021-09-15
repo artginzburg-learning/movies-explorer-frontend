@@ -5,7 +5,7 @@
 $techs-section-offset: 100px;
 
 .techs {
-  @include default-padding-landing;
+  @extend %default-padding-landing;
 
   padding: {
     top: $techs-section-offset;

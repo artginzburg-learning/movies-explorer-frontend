@@ -4,7 +4,7 @@
 @import '../../../styles/gaps';
 
 .aboutme {
-  @include default-padding-landing;
+  @extend %default-padding-landing;
 
   padding: {
     top: 110px;

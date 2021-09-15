@@ -5,7 +5,7 @@
 $portfolio-padding: 20px;
 
 .portfolio {
-  @include default-padding-landing;
+  @extend %default-padding-landing;
 
   padding-bottom: calc(125px - #{$portfolio-padding});
 

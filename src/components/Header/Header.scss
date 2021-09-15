@@ -6,7 +6,7 @@ $header-section-offset: 16px;
 $header-logo-size: 38px;
 
 .header {
-  @include default-padding;
+  @extend %default-padding;
 
   padding: {
     top: $header-section-offset;

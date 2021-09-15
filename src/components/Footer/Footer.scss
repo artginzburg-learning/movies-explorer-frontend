@@ -6,7 +6,7 @@
 $footer-padding: 20px;
 
 .footer {
-  @include default-padding;
+  @extend %default-padding;
 
   padding-top: 79px;
 

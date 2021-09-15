@@ -3,7 +3,7 @@
 @import '../../../styles/landing';
 
 .promo {
-  @include default-padding-landing;
+  @extend %default-padding-landing;
 
   background: {
     color: $promo-only;
