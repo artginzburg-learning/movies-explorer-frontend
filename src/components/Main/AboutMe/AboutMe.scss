@@ -17,13 +17,19 @@
 
   &__content {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
+
+    flex-direction: row-reverse;
+    @media screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+    }
 
     padding-top: 66px;
   }
 
   &__image {
+    align-self: center;
+
     max-width: 270px;
     max-height: 327px;
 
