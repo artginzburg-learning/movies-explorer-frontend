@@ -28,11 +28,7 @@
   justify-content: center;
 
   &__title {
-    @include heading-shared;
-
-    font-size: 50px;
-    line-height: 116%;
-    @include default-letter-spacing;
+    @include landing-title;
 
     @media screen and (max-width: $breakpoint-mobile) {
       font-size: 31px;
