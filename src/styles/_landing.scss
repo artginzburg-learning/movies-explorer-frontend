@@ -1,6 +1,9 @@
 @import 'shared';
 @import 'colors';
 
+$default-font-size-texts: 14px;
+$default-font-size-list-items: 14px;
+
 @mixin default-letter-spacing {
   letter-spacing: -0.04em;
 }
@@ -25,7 +28,7 @@
 }
 
 @mixin landing-text {
-  font-size: 14px;
+  font-size: $default-font-size-texts;
   line-height: 143%;
 
   padding-top: 26px;
@@ -33,7 +36,7 @@
 }
 
 @mixin landing-list-item-small {
-  font-size: 14px;
+  font-size: $default-font-size-list-items;
   line-height: 17px;
 }
 
