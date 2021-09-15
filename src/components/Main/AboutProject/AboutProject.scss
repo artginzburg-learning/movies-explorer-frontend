@@ -13,8 +13,6 @@ $aboutproject-section-offset: 110px;
     bottom: $aboutproject-section-offset;
   }
 
-  font-size: 0;
-
   &__title {
     @include landing-heading;
   }

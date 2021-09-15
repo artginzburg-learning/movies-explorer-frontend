@@ -2,7 +2,7 @@ import './Portfolio.scss';
 
 function Portfolio() {
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
       <ul className="portfolio__links">
         <li className="portfolio__links-item">
