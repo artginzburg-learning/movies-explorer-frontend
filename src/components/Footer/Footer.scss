@@ -1,6 +1,7 @@
 @import '../../styles/shared';
 @import '../../styles/colors';
 @import '../../styles/gaps';
+@import '../../styles/landing';
 
 $footer-padding: 20px;
 
@@ -12,7 +13,7 @@ $footer-padding: 20px;
   &__title {
     @include heading-shared;
 
-    font-size: 13px;
+    font-size: $default-font-size-links;
     line-height: 16px;
     text-align: center;
 

@@ -1,5 +1,6 @@
 @import '../../styles/shared';
 @import '../../styles/colors';
+@import '../../styles/landing';
 
 $header-section-offset: 16px;
 $header-logo-size: 38px;
@@ -51,7 +52,7 @@ $header-logo-size: 38px;
     @include link-shared;
 
     font-weight: 500;
-    font-size: 13px;
+    font-size: $default-font-size-links;
     line-height: 138%;
   }
 
