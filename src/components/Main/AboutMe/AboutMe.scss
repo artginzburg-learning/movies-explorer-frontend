@@ -40,6 +40,8 @@
 
   &__heading {
     @include landing-title;
+
+    @include landing-title-mobile;
   }
 
   &__subheading {

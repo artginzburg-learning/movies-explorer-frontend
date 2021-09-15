@@ -27,6 +27,12 @@ $default-font-size-list-items: 14px;
   line-height: 116%;
   @include default-letter-spacing;
 }
+@mixin landing-title-mobile {
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
 
 @mixin landing-text {
   font-size: $default-font-size-texts;

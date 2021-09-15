@@ -25,6 +25,13 @@ $techs-section-offset: 100px;
   &__heading {
     @include landing-title;
 
+    @media screen and (max-width: $breakpoint-tablet) {
+      font-size: 40px;
+      line-height: 100%;
+    }
+
+    @include landing-title-mobile;
+
     text-align: center;
   }
 
