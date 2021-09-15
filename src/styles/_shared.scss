@@ -36,18 +36,56 @@
   }
 }
 
+// anything wider is for 1280px design
+$breakpoint-tablet: 1023px; // for 768px design
+$breakpoint-mobile: 424px; // for 320px design
+
 $_default-padding-landing: 70px;
+$_default-padding-landing-tablet: 50px;
+$_default-padding-landing-mobile: 18px;
 %default-padding-landing {
   padding: {
     left: $_default-padding-landing;
     right: $_default-padding-landing;
   }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: {
+      left: $_default-padding-landing-tablet;
+      right: $_default-padding-landing-tablet;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      left: $_default-padding-landing-mobile;
+      right: $_default-padding-landing-mobile;
+    }
+  }
 }
 
 $_default-padding: 70px;
+$_default-padding-tablet: 30px;
+$_default-padding-mobile: 12px;
 %default-padding {
   padding: {
     left: $_default-padding;
     right: $_default-padding;
+  }
+
+  // for 768px design
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: {
+      left: $_default-padding-tablet;
+      right: $_default-padding-tablet;
+    }
+  }
+
+  // for 320px design
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      left: $_default-padding-mobile;
+      right: $_default-padding-mobile;
+    }
   }
 }
