@@ -21,6 +21,7 @@
 
   &__link {
     @include link-shared;
+    @extend %default-link-effects;
 
     text-decoration-line: underline;
 
@@ -29,5 +30,3 @@
     line-height: 123%;
   }
 }
-
-@include default-link-effects('.navtab__link');

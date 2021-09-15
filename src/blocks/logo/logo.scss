@@ -3,6 +3,6 @@
 .logo {
   display: inline-block;
   -webkit-tap-highlight-color: transparent;
-}
 
-@include default-link-effects('.logo');
+  @extend %default-link-effects;
+}

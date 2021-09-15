@@ -15,22 +15,24 @@
   margin: 0;
 }
 
-@mixin default-link-effects($selector, $transform: true) {
-  #{$selector} {
-    transition-property: opacity, transform;
-    transition-duration: 0.2s;
+%default-link-effects {
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
 
-    @if $transform {
-      &:active {
-        transform: scale(0.85);
-      }
-    }
+  &:active {
+    transform: scale(0.85);
   }
 
   @media (hover: hover) {
-    #{$selector}:hover {
+    &:hover {
       opacity: 0.6;
     }
+  }
+}
+
+%default-link-effects-notransform {
+  &:active {
+    transform: unset;
   }
 }
 

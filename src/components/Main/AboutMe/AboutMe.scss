@@ -69,9 +69,8 @@
   &__link {
     @include link-shared;
     @include landing-list-item-small;
+    @extend %default-link-effects;
 
     font-weight: 500;
   }
 }
-
-@include default-link-effects('.aboutme__link');

@@ -49,6 +49,7 @@ $header-logo-size: 38px;
 
     &-link {
       @include link-shared;
+      @extend %default-link-effects;
 
       font-weight: 500;
       font-size: $default-font-size-links;
@@ -62,6 +63,7 @@ $header-logo-size: 38px;
 
     &-button {
       @include link-shared;
+      @extend %default-link-effects;
 
       background: {
         image: url('../../images/profile-icon.svg');
@@ -86,6 +88,7 @@ $header-logo-size: 38px;
 
     &-link {
       @include link-shared;
+      @extend %default-link-effects;
 
       font-weight: 500;
       font-size: 12px;
@@ -102,7 +105,3 @@ $header-logo-size: 38px;
     }
   }
 }
-
-@include default-link-effects('.header__navigation-link');
-@include default-link-effects('.header__profile-link');
-@include default-link-effects('.header__profile-button');
