@@ -51,3 +51,5 @@ $portfolio-padding: 20px;
     }
   }
 }
+
+@include default-link-effects('.portfolio__link', false);

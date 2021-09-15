@@ -39,3 +39,5 @@ $footer-padding: 20px;
     display: flex;
   }
 }
+
+@include default-link-effects('.footer__link');

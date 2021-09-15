@@ -46,14 +46,14 @@ $header-logo-size: 38px;
   &__navigation {
     display: flex;
     gap: 16px;
-  }
 
-  &__navigation-link {
-    @include link-shared;
+    &-link {
+      @include link-shared;
 
-    font-weight: 500;
-    font-size: $default-font-size-links;
-    line-height: 138%;
+      font-weight: 500;
+      font-size: $default-font-size-links;
+      line-height: 138%;
+    }
   }
 
   &__profile {
@@ -102,3 +102,7 @@ $header-logo-size: 38px;
     }
   }
 }
+
+@include default-link-effects('.header__navigation-link');
+@include default-link-effects('.header__profile-link');
+@include default-link-effects('.header__profile-button');

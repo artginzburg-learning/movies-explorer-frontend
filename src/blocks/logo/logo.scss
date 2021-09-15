@@ -1,23 +1,8 @@
+@import '../../styles/landing';
+
 .logo {
   display: inline-block;
   -webkit-tap-highlight-color: transparent;
-
-  transition-property: opacity, transform;
-  transition-duration: 0.2s;
 }
 
-.logo:active {
-  transform: scale(0.8);
-}
-
-@media (hover: none) {
-  .logo:active {
-    opacity: 0.6;
-  }
-}
-
-@media (hover: hover) {
-  .logo:hover {
-    opacity: 0.6;
-  }
-}
+@include default-link-effects('.logo');
