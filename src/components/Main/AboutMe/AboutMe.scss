@@ -69,7 +69,7 @@
 
   &__heading {
     @include landing-title;
-
+    @include landing-title-tablet;
     @include landing-title-mobile;
   }
 
