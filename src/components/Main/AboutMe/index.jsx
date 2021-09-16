@@ -24,16 +24,18 @@ function AboutMe() {
         <div className="aboutme__content">
           <img className="aboutme__image" src={student} alt="Арт Гинзбург" />
           <div className="aboutme__student">
-            <h3 className="aboutme__heading">Артур</h3>
-            <p className="aboutme__subheading">Фронтенд-разработчик, {myAge} лет</p>
-            <p className="aboutme__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan volutpat
-              sollicitudin. Nullam eget mauris ante. Nullam id mattis sapien. Praesent mollis, diam
-              eget dictum semper, velit diam ultrices ante, vitae condimentum lorem eros vitae
-              tortor. Etiam elit leo, hendrerit et nisi a, aliquam suscipit tellus. Suspendisse
-              pretium tellus ac erat ultrices viverra. Donec placerat dui nibh, vel aliquet tellus
-              ultricies et.
-            </p>
+            <div className="aboutme__student-article">
+              <h3 className="aboutme__heading">Артур</h3>
+              <p className="aboutme__subheading">Фронтенд-разработчик, {myAge} лет</p>
+              <p className="aboutme__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan volutpat
+                sollicitudin. Nullam eget mauris ante. Nullam id mattis sapien. Praesent mollis,
+                diam eget dictum semper, velit diam ultrices ante, vitae condimentum lorem eros
+                vitae tortor. Etiam elit leo, hendrerit et nisi a, aliquam suscipit tellus.
+                Suspendisse pretium tellus ac erat ultrices viverra. Donec placerat dui nibh, vel
+                aliquet tellus ultricies et.
+              </p>
+            </div>
             <div className="aboutme__links">
               <a className="aboutme__link" href="https://t.me/ginzart">
                 Telegram
