@@ -19,12 +19,15 @@
     display: flex;
     justify-content: space-between;
 
+    column-gap: 50px;
+    row-gap: 40px;
+
     flex-direction: row-reverse;
+    padding-top: 66px;
     @media screen and (max-width: $breakpoint-mobile) {
       flex-direction: column;
+      padding-top: 60px;
     }
-
-    padding-top: 66px;
   }
 
   &__image {
