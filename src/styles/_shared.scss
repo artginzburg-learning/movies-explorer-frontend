@@ -42,7 +42,7 @@ $breakpoint-mobile: 694px; // for 320px design
 
 $_default-padding-landing: 70px;
 $_default-padding-landing-tablet: 50px;
-$_default-padding-landing-mobile: 18px;
+$_default-padding-landing-mobile: 14px;
 %default-padding-landing {
   padding: {
     left: $_default-padding-landing;
@@ -66,7 +66,7 @@ $_default-padding-landing-mobile: 18px;
 
 $_default-padding: 70px;
 $_default-padding-tablet: 30px;
-$_default-padding-mobile: 12px;
+$_default-padding-mobile: 14px;
 %default-padding {
   padding: {
     left: $_default-padding;
