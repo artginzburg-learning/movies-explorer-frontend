@@ -19,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "local": "PORT=80 HOST=art.local sudo -E react-scripts start",
+    "isolated": "PORT=80 sudo -E react-scripts start",
     "build": "react-scripts build",
     "postbuild": "ln -s index.html build/404.html",
     "predeploy": "npm run build",
