@@ -27,16 +27,35 @@ $footer-padding: 20px;
     padding: $footer-padding 0;
 
     border-top: 1px solid $stroke-2;
+
+    flex-direction: row-reverse;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      align-items: center;
+      flex-direction: column;
+      gap: 50px;
+    }
   }
 
   &__link {
     @include link-shared;
     @extend %default-link-effects;
+
+    &-copyright {
+      @media screen and (max-width: $breakpoint-mobile) {
+        color: $font-2;
+      }
+    }
   }
 
   &__links {
     @include default-gap-small;
 
     display: flex;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 }
