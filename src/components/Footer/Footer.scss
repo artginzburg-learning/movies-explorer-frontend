@@ -15,6 +15,11 @@ $footer-padding: 20px;
 
     font-size: $default-font-size-links;
     line-height: 16px;
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
     text-align: center;
 
     color: $font-2;
@@ -33,13 +38,21 @@ $footer-padding: 20px;
     @media screen and (max-width: $breakpoint-mobile) {
       align-items: center;
       flex-direction: column;
-      gap: 50px;
+      row-gap: 30px;
+
+      padding-top: 30px;
+      padding-bottom: 10px;
     }
   }
 
   &__link {
     @include link-shared;
     @extend %default-link-effects;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 12px;
+      line-height: 15px;
+    }
 
     &-copyright {
       @media screen and (max-width: $breakpoint-mobile) {
@@ -50,6 +63,9 @@ $footer-padding: 20px;
 
   &__links {
     @include default-gap-small;
+    @media screen and (max-width: $breakpoint-mobile) {
+      row-gap: 12px;
+    }
 
     display: flex;
 

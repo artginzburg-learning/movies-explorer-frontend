@@ -9,6 +9,10 @@ $portfolio-padding: 20px;
 
   padding-bottom: calc(125px - #{$portfolio-padding});
 
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-bottom: calc(70px - #{$portfolio-padding});
+  }
+
   &__title {
     @include heading-shared;
     @include aboutme-subheading;
@@ -43,6 +47,11 @@ $portfolio-padding: 20px;
 
     font-size: 30px;
     line-height: 167%;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 18px;
+      line-height: 156%;
+    }
 
     &::after {
       position: absolute;
