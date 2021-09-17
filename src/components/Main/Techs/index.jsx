@@ -1,5 +1,15 @@
 import './Techs.scss';
 
+const technologies = [
+  ['HTML'],
+  ['CSS'],
+  ['JS', 'javascript'],
+  ['React'],
+  ['Git'],
+  ['Express.js', 'express'],
+  ['mongoDB'],
+];
+
 function Techs() {
   return (
     <section className="techs" id="techs">
@@ -10,9 +20,14 @@ function Techs() {
           На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
         </p>
         <ul className="techs__list">
-          {['HTML', 'CSS', 'JS', 'React', 'Git', 'Express.js', 'mongoDB'].map((item, index) => (
+          {technologies.map((item, index) => (
             <li className="techs__list-item" key={index}>
-              {item}
+              <a
+                className="techs__list-link"
+                href={`https://github.com/topics/${(item[1] ?? item[0]).toLowerCase()}`}
+              >
+                {item[0]}
+              </a>
             </li>
           ))}
         </ul>

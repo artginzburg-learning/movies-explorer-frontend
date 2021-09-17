@@ -61,14 +61,27 @@ $techs-section-offset: 100px;
     }
 
     &-item {
+      text-align: center;
+    }
+
+    &-link {
+      @include link-shared;
       @include landing-list-item-small;
       @include default-letter-spacing;
 
-      text-align: center;
-      background-color: $landing-shapes;
-
+      display: block;
       padding: 21px 0;
       border-radius: 10px;
+
+      @extend %default-link-effects;
+
+      transition-property: background-color, color, opacity, transform;
+      background-color: $landing-shapes;
+
+      &:hover {
+        background-color: $landing-shapes-selected;
+        color: $landing-button;
+      }
     }
   }
 }
