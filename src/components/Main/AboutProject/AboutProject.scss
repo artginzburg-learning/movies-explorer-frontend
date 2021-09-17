@@ -4,6 +4,7 @@
 @import '../../../styles/gaps';
 
 $aboutproject-section-offset: 110px;
+$aboutproject-offset-mobile: 60px;
 
 .aboutproject {
   @extend %default-padding-landing;
@@ -21,12 +22,21 @@ $aboutproject-section-offset: 110px;
     @include reset-list-style;
     @include default-gap-medium;
 
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    row-gap: $aboutproject-offset-mobile;
 
     padding: {
       top: 70px;
       bottom: $aboutproject-section-offset;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+
+      padding: {
+        top: $aboutproject-offset-mobile;
+        bottom: $aboutproject-offset-mobile;
+      }
     }
   }
 
@@ -40,6 +50,10 @@ $aboutproject-section-offset: 110px;
 
   &__text {
     @include landing-text;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-top: 16px;
+    }
   }
 
   &__plan {
