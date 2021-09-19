@@ -19,6 +19,10 @@
     @include reset-list-style;
     @include default-gap-medium;
 
+    @media screen and (max-width: $breakpoint-mobile) {
+      gap: 24px;
+    }
+
     display: flex;
     align-items: center;
   }
@@ -30,6 +34,11 @@
     font-weight: 500;
     font-size: $default-font-size-links;
     line-height: 123%;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 11px;
+      line-height: 145%;
+    }
 
     &-container {
       @extend %default-link-effects;
