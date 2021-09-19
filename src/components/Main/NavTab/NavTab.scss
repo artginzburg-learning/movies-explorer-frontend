@@ -4,29 +4,35 @@
 @import '../../../styles/landing';
 
 .navtab {
-  @include default-gap-medium;
-
   background-color: $landing-1;
 
   min-height: 70px;
 
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
+  display: flex;
   justify-content: center;
 
   position: sticky;
   top: 0;
   z-index: 1;
 
+  &__links {
+    @include reset-list-style;
+    @include default-gap-medium;
+
+    display: flex;
+    align-items: center;
+  }
+
   &__link {
     @include link-shared;
-    @extend %default-link-effects;
-
     text-decoration-line: underline;
 
     font-weight: 500;
     font-size: $default-font-size-links;
     line-height: 123%;
+
+    &-container {
+      @extend %default-link-effects;
+    }
   }
 }
