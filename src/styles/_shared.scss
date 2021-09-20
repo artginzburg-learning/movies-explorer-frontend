@@ -21,6 +21,7 @@
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   user-select: none;
+  cursor: pointer;
 
   &:active {
     transform: scale(0.85);
@@ -38,6 +39,14 @@
 %default-link-effects-notransform {
   &:active {
     transform: unset;
+  }
+}
+
+%default-link-effects-noopacity {
+  @media (hover: hover) {
+    &:hover {
+      opacity: unset;
+    }
   }
 }
 

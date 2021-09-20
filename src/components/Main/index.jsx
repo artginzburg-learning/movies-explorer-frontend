@@ -1,3 +1,5 @@
+import { useTitle } from '../../hooks/useTitle';
+
 import Footer from '../Footer';
 import Header from '../Header';
 
@@ -9,6 +11,8 @@ import Promo from './Promo';
 import Techs from './Techs';
 
 function Main() {
+  useTitle('О проекте');
+
   return (
     <>
       <Header />
