@@ -159,7 +159,7 @@ $_label-offset-mobile: 43px;
     height: $switch-base-height;
 
     position: relative;
-    background-color: $stroke-landing;
+    background-color: $switch-disabled;
     border-radius: $switch-base-height;
 
     margin-right: 12px;
@@ -171,8 +171,7 @@ $_label-offset-mobile: 43px;
       @extend %default-link-effects-noopacity;
 
       transition-property: margin, transform;
-      transition-duration: 0.25s;
-      background-color: $global-text;
+      background-color: $switch-disabled-cap;
 
       box-shadow: 0px $switch-base-margin 6px rgba(0, 0, 0, 0.08);
 
@@ -195,6 +194,7 @@ $_label-offset-mobile: 43px;
 
       &::after {
         margin-left: $switch-base-width;
+        background-color: $global-text;
       }
     }
   }
