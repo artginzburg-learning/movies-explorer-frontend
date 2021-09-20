@@ -37,10 +37,20 @@ function AboutMe() {
               </p>
             </div>
             <div className="aboutme__links">
-              <a className="aboutme__link" href="https://t.me/ginzart">
+              <a
+                className="aboutme__link"
+                href="https://t.me/ginzart"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Telegram
               </a>
-              <a className="aboutme__link" href="https://github.com/artginzburg">
+              <a
+                className="aboutme__link"
+                href="https://github.com/artginzburg"
+                target="_blank"
+                rel="noreferrer"
+              >
                 GitHub
               </a>
             </div>

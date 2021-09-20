@@ -24,9 +24,9 @@ function Techs() {
             <li className="techs__list-item" key={index}>
               <a
                 className="techs__list-link"
+                href={`https://github.com/topics/${(item[1] ?? item[0]).toLowerCase()}`}
                 target="_blank"
                 rel="noreferrer"
-                href={`https://github.com/topics/${(item[1] ?? item[0]).toLowerCase()}`}
               >
                 {item[0]}
               </a>

@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header__links">
-        <a href={repository} className="logo header__logo">
+        <a href={repository} target="_blank" rel="noreferrer" className="logo header__logo">
           <img className="logo__img" alt="Movies Explorer" src={logo} />
         </a>
 
