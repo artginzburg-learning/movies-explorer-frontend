@@ -152,6 +152,9 @@ $_label-offset-mobile: 43px;
   $switch-base-margin: 2px;
 
   &__switch {
+    @extend %default-link-effects;
+    @extend %default-link-effects-noopacity;
+
     appearance: none;
     cursor: pointer;
 
@@ -163,24 +166,24 @@ $_label-offset-mobile: 43px;
     border-radius: $switch-base-height;
 
     margin-right: 12px;
-    transition-property: background-color;
+    transition-property: background-color, transform;
     transition-duration: 0.25s;
 
     &::after {
       @extend %default-link-effects;
       @extend %default-link-effects-noopacity;
 
-      transition-property: margin, transform;
+      transition-property: margin, transform, box-shadow;
       background-color: $switch-disabled-cap;
 
-      box-shadow: 0px $switch-base-margin 6px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 $switch-base-margin 6px rgba(0, 0, 0, 0.08);
 
       content: '';
       display: block;
 
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 0;
 
       margin: $switch-base-margin;
       width: $switch-base-width - $switch-base-margin;
@@ -196,6 +199,10 @@ $_label-offset-mobile: 43px;
         margin-left: $switch-base-width;
         background-color: $global-text;
       }
+    }
+
+    &:hover::after {
+      box-shadow: 0 0 8px $global-background;
     }
   }
 }
