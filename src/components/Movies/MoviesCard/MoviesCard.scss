@@ -1,0 +1,101 @@
+@import '../../../styles/colors';
+@import '../../../styles/landing';
+
+.moviescard {
+  width: 360px;
+  height: 319px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+
+  &__figure {
+    margin: 0;
+  }
+
+  &__text-container {
+    margin: 0 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 54px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 120%;
+  }
+
+  &__duration {
+    margin: 0;
+    color: $font-2;
+
+    font-size: 13px;
+    line-height: 138%;
+  }
+
+  &__image {
+    height: 200px;
+    width: 100%;
+
+    object-fit: contain;
+
+    cursor: zoom-in;
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    transition-property: box-shadow;
+    transition-duration: 0.3s;
+  }
+
+  &__button {
+    @extend %default-link-effects;
+
+    width: 100px;
+    height: 29px;
+    appearance: none;
+    border: none;
+    border-radius: 30px;
+
+    font-size: 12px;
+    line-height: 92%;
+    color: inherit;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: #313131;
+
+    margin: 18px 0;
+
+    &_type {
+      &_add {
+        &::after {
+          content: 'Сохранить';
+        }
+      }
+      &_added {
+        background-color: #ee3465;
+        background-image: url(../../../images/checkmark-icon.svg);
+      }
+
+      &_remove {
+        background-image: url(../../../images/cross-icon.svg);
+      }
+      &_removed {
+        color: $font-2;
+
+        &::after {
+          content: 'Удалено';
+        }
+      }
+    }
+  }
+}

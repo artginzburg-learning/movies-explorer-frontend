@@ -1,0 +1,14 @@
+@import '../../../styles/shared';
+
+.moviescards__list {
+  @include reset-list-style;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  row-gap: 28px;
+  column-gap: 32px;
+
+  padding-top: 70px;
+}
