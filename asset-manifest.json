@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/movies-explorer-frontend/static/css/main.b509d2e8.chunk.css",
-    "main.js": "/movies-explorer-frontend/static/js/main.0f4ffe37.chunk.js",
-    "main.js.map": "/movies-explorer-frontend/static/js/main.0f4ffe37.chunk.js.map",
-    "runtime-main.js": "/movies-explorer-frontend/static/js/runtime-main.978be33e.js",
-    "runtime-main.js.map": "/movies-explorer-frontend/static/js/runtime-main.978be33e.js.map",
+    "main.css": "/movies-explorer-frontend/static/css/main.343bc165.chunk.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.177f384a.chunk.js",
+    "main.js.map": "/movies-explorer-frontend/static/js/main.177f384a.chunk.js.map",
+    "runtime-main.js": "/movies-explorer-frontend/static/js/runtime-main.1b59924c.js",
+    "runtime-main.js.map": "/movies-explorer-frontend/static/js/runtime-main.1b59924c.js.map",
     "static/js/2.689331bf.chunk.js": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js",
     "static/js/2.689331bf.chunk.js.map": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js.map",
-    "static/js/3.c975a2b0.chunk.js": "/movies-explorer-frontend/static/js/3.c975a2b0.chunk.js",
-    "static/js/3.c975a2b0.chunk.js.map": "/movies-explorer-frontend/static/js/3.c975a2b0.chunk.js.map",
+    "static/js/3.eed026ac.chunk.js": "/movies-explorer-frontend/static/js/3.eed026ac.chunk.js",
+    "static/js/3.eed026ac.chunk.js.map": "/movies-explorer-frontend/static/js/3.eed026ac.chunk.js.map",
     "index.html": "/movies-explorer-frontend/index.html",
-    "static/css/main.b509d2e8.chunk.css.map": "/movies-explorer-frontend/static/css/main.b509d2e8.chunk.css.map",
+    "static/css/main.343bc165.chunk.css.map": "/movies-explorer-frontend/static/css/main.343bc165.chunk.css.map",
     "static/js/2.689331bf.chunk.js.LICENSE.txt": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/movies-explorer-frontend/static/media/Inter.var.c2fe3cb2.woff2",
     "static/media/MoviesCard.scss": "/movies-explorer-frontend/static/media/cross-icon.b5d582be.svg",
@@ -21,9 +21,9 @@
     "static/media/student.22e6909b.jpg": "/movies-explorer-frontend/static/media/student.22e6909b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.978be33e.js",
+    "static/js/runtime-main.1b59924c.js",
     "static/js/2.689331bf.chunk.js",
-    "static/css/main.b509d2e8.chunk.css",
-    "static/js/main.0f4ffe37.chunk.js"
+    "static/css/main.343bc165.chunk.css",
+    "static/js/main.177f384a.chunk.js"
   ]
 }
