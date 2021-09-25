@@ -89,8 +89,8 @@ export default function MoviesCardList() {
   return (
     <section className="moviescards">
       <ul className="moviescards__list">
-        {testCards.map((card) => (
-          <MoviesCard card={card} />
+        {testCards.map((card, index) => (
+          <MoviesCard card={card} key={index} />
         ))}
       </ul>
     </section>

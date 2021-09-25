@@ -75,25 +75,36 @@
 
     margin: 18px 0;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: opacity, transform, background-color;
+
     &_type {
       &_add {
-        &::after {
-          content: 'Сохранить';
+        &:not(:checked) {
+          &::after {
+            content: 'Сохранить';
+          }
         }
-      }
-      &_added {
-        background-color: #ee3465;
-        background-image: url(../../../images/checkmark-icon.svg);
+
+        &:checked {
+          background-color: #ee3465;
+          background-image: url(../../../images/checkmark-icon.svg);
+        }
       }
 
       &_remove {
-        background-image: url(../../../images/cross-icon.svg);
-      }
-      &_removed {
-        color: $font-2;
+        &:not(:checked) {
+          background-image: url(../../../images/cross-icon.svg);
+        }
+        &:checked {
+          color: $font-2;
 
-        &::after {
-          content: 'Удалено';
+          &::after {
+            content: 'Удалено';
+          }
         }
       }
     }

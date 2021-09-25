@@ -1,5 +1,8 @@
 import { classNames } from '../../../utils/toClassNames';
+
 import './MoviesCard.scss';
+
+const moviesListType = 'add';
 
 function declOfNum(number, words) {
   return words[
@@ -14,10 +17,8 @@ function durationDeclension(duration) {
 }
 
 export default function MoviesCard({ card }) {
-  const buttonClassNames = [
-    'moviescard__button',
-    card.added ? 'moviescard__button_type_added' : 'moviescard__button_type_add',
-  ];
+  const buttonClassNames = ['moviescard__button', `moviescard__button_type_${moviesListType}`];
+
   return (
     <li className="moviescard">
       <figure className="moviescard__figure">
@@ -29,7 +30,7 @@ export default function MoviesCard({ card }) {
         <img className="moviescard__image" src={card.img} alt={card.name} />
       </figure>
 
-      <button type="button" {...classNames(buttonClassNames)} />
+      <input type="checkbox" defaultChecked={card.added} {...classNames(buttonClassNames)} />
     </li>
   );
 }
