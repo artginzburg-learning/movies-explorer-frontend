@@ -2,8 +2,6 @@ import { classNames } from '../../../utils/toClassNames';
 
 import './MoviesCard.scss';
 
-const moviesListType = 'add';
-
 function declOfNum(number, words) {
   return words[
     number % 100 > 4 && number % 100 < 20
@@ -16,8 +14,8 @@ function durationDeclension(duration) {
   return `${duration} ${declOfNum(duration, ['минута', 'минуты', 'минут'])}`;
 }
 
-export default function MoviesCard({ card }) {
-  const buttonClassNames = ['moviescard__button', `moviescard__button_type_${moviesListType}`];
+export default function MoviesCard({ card, type }) {
+  const buttonClassNames = ['moviescard__button', `moviescard__button_type_${type}`];
 
   return (
     <li className="moviescard">
