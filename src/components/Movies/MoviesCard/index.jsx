@@ -28,7 +28,11 @@ export default function MoviesCard({ card, type }) {
         <img className="moviescard__image" src={card.img} alt={card.name} />
       </figure>
 
-      <input type="checkbox" defaultChecked={card.added} {...classNames(buttonClassNames)} />
+      <input
+        type="checkbox"
+        defaultChecked={type === 'add' ? card.added : !card.added}
+        {...classNames(buttonClassNames)}
+      />
     </li>
   );
 }
