@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/movies-explorer-frontend/static/css/main.343bc165.chunk.css",
-    "main.js": "/movies-explorer-frontend/static/js/main.70443729.chunk.js",
-    "main.js.map": "/movies-explorer-frontend/static/js/main.70443729.chunk.js.map",
+    "main.css": "/movies-explorer-frontend/static/css/main.03de8a3c.chunk.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.970e9b76.chunk.js",
+    "main.js.map": "/movies-explorer-frontend/static/js/main.970e9b76.chunk.js.map",
     "runtime-main.js": "/movies-explorer-frontend/static/js/runtime-main.1b59924c.js",
     "runtime-main.js.map": "/movies-explorer-frontend/static/js/runtime-main.1b59924c.js.map",
-    "static/js/2.689331bf.chunk.js": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js",
-    "static/js/2.689331bf.chunk.js.map": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js.map",
+    "static/js/2.85d3576e.chunk.js": "/movies-explorer-frontend/static/js/2.85d3576e.chunk.js",
+    "static/js/2.85d3576e.chunk.js.map": "/movies-explorer-frontend/static/js/2.85d3576e.chunk.js.map",
     "static/js/3.eed026ac.chunk.js": "/movies-explorer-frontend/static/js/3.eed026ac.chunk.js",
     "static/js/3.eed026ac.chunk.js.map": "/movies-explorer-frontend/static/js/3.eed026ac.chunk.js.map",
     "index.html": "/movies-explorer-frontend/index.html",
-    "static/css/main.343bc165.chunk.css.map": "/movies-explorer-frontend/static/css/main.343bc165.chunk.css.map",
-    "static/js/2.689331bf.chunk.js.LICENSE.txt": "/movies-explorer-frontend/static/js/2.689331bf.chunk.js.LICENSE.txt",
+    "static/css/main.03de8a3c.chunk.css.map": "/movies-explorer-frontend/static/css/main.03de8a3c.chunk.css.map",
+    "static/js/2.85d3576e.chunk.js.LICENSE.txt": "/movies-explorer-frontend/static/js/2.85d3576e.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/movies-explorer-frontend/static/media/Inter.var.c2fe3cb2.woff2",
     "static/media/MoviesCard.scss": "/movies-explorer-frontend/static/media/cross-icon.b5d582be.svg",
     "static/media/Promo.scss": "/movies-explorer-frontend/static/media/landing-logo.f0a720a9.svg",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1b59924c.js",
-    "static/js/2.689331bf.chunk.js",
-    "static/css/main.343bc165.chunk.css",
-    "static/js/main.70443729.chunk.js"
+    "static/js/2.85d3576e.chunk.js",
+    "static/css/main.03de8a3c.chunk.css",
+    "static/js/main.970e9b76.chunk.js"
   ]
 }
