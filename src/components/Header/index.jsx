@@ -8,7 +8,7 @@ const loggedIn = true;
 function Header() {
   return (
     <header className="header">
-      <div className="header__links">
+      <nav className="header__links">
         <Link to="/" className="logo header__logo">
           <img className="logo__img" alt="Movies Explorer" src={logo} />
         </Link>
@@ -31,7 +31,7 @@ function Header() {
             </NavLink>
           </div>
         )}
-      </div>
+      </nav>
 
       <div className="header__profile">
         {loggedIn ? (
