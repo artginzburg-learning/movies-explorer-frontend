@@ -55,9 +55,12 @@ $header-logo-size: 38px;
       @include link-shared;
       @extend %default-link-effects;
 
-      font-weight: 500;
       font-size: $default-font-size-links;
       line-height: 138%;
+
+      &_active {
+        font-weight: 500;
+      }
     }
   }
 

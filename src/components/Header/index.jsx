@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
 import './Header.scss';
@@ -15,12 +15,20 @@ function Header() {
 
         {loggedIn && (
           <div className="header__navigation">
-            <Link to="/movies" className="header__navigation-link">
+            <NavLink
+              activeClassName="header__navigation-link_active"
+              to="/movies"
+              className="header__navigation-link"
+            >
               Фильмы
-            </Link>
-            <Link to="/saved-movies" className="header__navigation-link">
+            </NavLink>
+            <NavLink
+              activeClassName="header__navigation-link_active"
+              to="/saved-movies"
+              className="header__navigation-link"
+            >
               Сохранённые фильмы
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>
