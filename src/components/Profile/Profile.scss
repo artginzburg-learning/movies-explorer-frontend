@@ -1,0 +1,104 @@
+@import '../../styles/shared';
+@import '../../styles/colors';
+
+.profile {
+  @extend %default-padding;
+
+  padding: {
+    top: 74px + 70px;
+    bottom: 70px;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100vh;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: {
+      top: 74px + 236px;
+      bottom: 269px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      top: 74px + 70px;
+      bottom: 40px;
+    }
+  }
+
+  &__title {
+    @include heading-shared;
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__details {
+    @include reset-list-style;
+
+    width: 410px;
+    max-width: 100%;
+    margin-bottom: 65px;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      margin-bottom: 110px;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 16px 0;
+    }
+
+    &-item:not(:last-child) {
+      border-bottom: 1px solid $stroke-2;
+    }
+
+    &-heading {
+      @include heading-shared;
+
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 13px;
+    }
+
+    &-text {
+      margin: 0;
+
+      font-size: 11px;
+      line-height: 13px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 16px;
+  }
+
+  &__button {
+    @include link-shared;
+    @extend %default-link-effects;
+
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+
+    font-size: 13px;
+    line-height: 16px;
+
+    &_type_dangerous {
+      color: #ee3465;
+    }
+  }
+}

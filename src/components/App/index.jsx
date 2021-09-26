@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Main from '../Main';
 import Movies from '../Movies';
 import NotFound from '../NotFound';
+import Profile from '../Profile';
 
 const cardsFound = [
   {
@@ -89,6 +90,11 @@ const cardsFound = [
 
 const cardsSaved = cardsFound.filter((card) => card.added);
 
+const user = {
+  name: 'Артур',
+  email: 'art.ginzburg@ya.ru',
+};
+
 function App() {
   return (
     <Switch>
@@ -98,6 +104,9 @@ function App() {
       </Route>
       <Route path="/saved-movies">
         <Movies cards={cardsSaved} type="remove" />
+      </Route>
+      <Route path="/profile">
+        <Profile user={user} />
       </Route>
       <Route component={NotFound} />
     </Switch>
