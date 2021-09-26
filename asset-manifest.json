@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movies-explorer-frontend/static/css/main.b3d17849.chunk.css",
+    "main.css": "/movies-explorer-frontend/static/css/main.ee7d2c06.chunk.css",
     "main.js": "/movies-explorer-frontend/static/js/main.bb03e817.chunk.js",
     "main.js.map": "/movies-explorer-frontend/static/js/main.bb03e817.chunk.js.map",
     "runtime-main.js": "/movies-explorer-frontend/static/js/runtime-main.0afcdebd.js",
@@ -10,7 +10,7 @@
     "static/js/3.7b16b6d4.chunk.js": "/movies-explorer-frontend/static/js/3.7b16b6d4.chunk.js",
     "static/js/3.7b16b6d4.chunk.js.map": "/movies-explorer-frontend/static/js/3.7b16b6d4.chunk.js.map",
     "index.html": "/movies-explorer-frontend/index.html",
-    "static/css/main.b3d17849.chunk.css.map": "/movies-explorer-frontend/static/css/main.b3d17849.chunk.css.map",
+    "static/css/main.ee7d2c06.chunk.css.map": "/movies-explorer-frontend/static/css/main.ee7d2c06.chunk.css.map",
     "static/js/2.29c57739.chunk.js.LICENSE.txt": "/movies-explorer-frontend/static/js/2.29c57739.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/movies-explorer-frontend/static/media/profile-icon.05bca418.svg",
     "static/media/MoviesCard.scss": "/movies-explorer-frontend/static/media/cross-icon.b5d582be.svg",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.0afcdebd.js",
     "static/js/2.29c57739.chunk.js",
-    "static/css/main.b3d17849.chunk.css",
+    "static/css/main.ee7d2c06.chunk.css",
     "static/js/main.bb03e817.chunk.js"
   ]
 }
