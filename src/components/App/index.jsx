@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
 import Main from '../Main';
 import Movies from '../Movies';
