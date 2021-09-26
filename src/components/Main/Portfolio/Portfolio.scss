@@ -28,10 +28,9 @@ $portfolio-padding: 20px;
     &-item {
       padding: $portfolio-padding 0;
       box-sizing: border-box;
-      border-bottom: 1px solid $stroke-2;
 
-      &:last-child {
-        border-bottom: none;
+      &:not(:last-child) {
+        border-bottom: 1px solid $stroke-2;
       }
     }
   }

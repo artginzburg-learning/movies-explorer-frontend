@@ -29,7 +29,8 @@
 
   &__link {
     @include link-shared;
-    text-decoration-line: underline;
+
+    border-bottom: 1px solid;
 
     font-weight: 500;
     font-size: $default-font-size-links;
