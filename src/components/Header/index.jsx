@@ -1,11 +1,24 @@
+import { useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
+import Navigation from '../Navigation';
+
 import './Header.scss';
 
 const loggedIn = true;
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const openMenu = useCallback(() => {
+    setIsMenuOpen(true);
+  }, []);
+
+  const closeMenu = useCallback((e) => {
+    e.target === e.currentTarget && setIsMenuOpen(false);
+  }, []);
+
   return (
     <header className="header">
       <nav className="header__links">
@@ -35,9 +48,13 @@ function Header() {
 
       <div className="header__profile">
         {loggedIn ? (
-          <Link to="/profile" className="header__profile-button">
-            Аккаунт
-          </Link>
+          <>
+            <Link to="/profile" className="profile-button header__profile-button">
+              Аккаунт
+            </Link>
+            <button type="button" onClick={openMenu} className="header__burger" />
+            {isMenuOpen && <Navigation onClose={closeMenu} />}
+          </>
         ) : (
           <>
             <Link to="/signup" className="header__profile-link">
