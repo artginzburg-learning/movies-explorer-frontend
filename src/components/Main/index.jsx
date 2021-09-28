@@ -10,12 +10,12 @@ import Portfolio from './Portfolio';
 import Promo from './Promo';
 import Techs from './Techs';
 
-function Main() {
+function Main({ loggedIn }) {
   useTitle('О проекте');
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} />
       <main>
         <Promo />
         <NavTab />

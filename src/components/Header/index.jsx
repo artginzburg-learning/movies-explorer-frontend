@@ -6,9 +6,7 @@ import Navigation from '../Navigation';
 
 import './Header.scss';
 
-const loggedIn = true;
-
-function Header() {
+function Header({ loggedIn }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const openMenu = useCallback(() => {

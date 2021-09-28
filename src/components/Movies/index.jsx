@@ -6,12 +6,12 @@ import Header from '../Header';
 import MoviesCardList from './MoviesCardList';
 import SearchForm from './SearchForm';
 
-export default function Movies({ cards = [], type = 'add' }) {
+export default function Movies({ cards = [], type = 'add', loggedIn }) {
   useTitle(type === 'add' ? 'Фильмы' : 'Сохранённые фильмы');
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} />
       <main>
         <SearchForm />
         <MoviesCardList type={type} cards={cards} />

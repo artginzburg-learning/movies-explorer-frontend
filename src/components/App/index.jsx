@@ -1,5 +1,14 @@
-import { Route, Switch } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
 
+import { Route, Switch, useHistory } from 'react-router-dom';
+
+import { paths } from '../../utils/constants';
+import scrollToTop from '../../utils/scrollToTop';
+
+import useStateWithLocalStorage from '../../hooks/useStateWithLocalStorage';
+import useStateWithBase64 from '../../hooks/useStateWithBase64';
+
+import Authentication from '../Authentication';
 import Main from '../Main';
 import Movies from '../Movies';
 import NotFound from '../NotFound';
@@ -90,23 +99,89 @@ const cardsFound = [
 
 const cardsSaved = cardsFound.filter((card) => card.added);
 
-const user = {
-  name: 'Артур',
-  email: 'art.ginzburg@ya.ru',
-};
-
 function App() {
+  const history = useHistory();
+
+  const [loggedIn, setLoggedIn] = useStateWithLocalStorage('loggedIn', false);
+  const [email, setEmail] = useStateWithBase64('email', '');
+
+  const user = {
+    name: 'Артур',
+    email,
+  };
+
+  const handleLogin = useCallback(
+    (email) => {
+      setEmail(email);
+      setLoggedIn(true);
+    },
+    [setEmail, setLoggedIn],
+  );
+
+  const handleTokenCheck = useCallback(() => {
+    if (localStorage.token) {
+      handleLogin(email);
+    } else {
+      setLoggedIn(false);
+    }
+  }, [email, handleLogin, setLoggedIn]);
+
+  function handleSubmitRegister(e_, email, password) {
+    return new Promise((resolve, reject) => {
+      history.replace(paths.login);
+
+      resolve();
+    });
+  }
+
+  function handleSubmitLogin(e, email, password) {
+    if (!email || !password) {
+      return;
+    }
+
+    return new Promise((resolve, reject) => {
+      e.target.reset();
+
+      localStorage.token = Math.random();
+
+      handleLogin(email);
+      history.push(paths.search);
+
+      resolve();
+    });
+  }
+
+  function handleSignOut() {
+    delete localStorage.token;
+    setLoggedIn(false);
+    history.replace(paths.main);
+    scrollToTop();
+  }
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, [handleTokenCheck]);
+
   return (
     <Switch>
-      <Route exact path="/" component={Main} />
-      <Route path="/movies">
-        <Movies cards={cardsFound} />
+      <Route exact path={paths.main}>
+        <Main loggedIn={loggedIn} />
       </Route>
-      <Route path="/saved-movies">
-        <Movies cards={cardsSaved} type="remove" />
+      <Route path={[paths.register, paths.login]}>
+        <Authentication
+          loggedIn={loggedIn}
+          handleLogin={handleSubmitLogin}
+          handleRegister={handleSubmitRegister}
+        />
       </Route>
-      <Route path="/profile">
-        <Profile user={user} />
+      <Route path={paths.search}>
+        <Movies cards={cardsFound} loggedIn={loggedIn} />
+      </Route>
+      <Route path={paths.saved}>
+        <Movies cards={cardsSaved} type="remove" loggedIn={loggedIn} />
+      </Route>
+      <Route path={paths.account}>
+        <Profile user={user} handleSignOut={handleSignOut} loggedIn={loggedIn} />
       </Route>
       <Route component={NotFound} />
     </Switch>

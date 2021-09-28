@@ -3,12 +3,12 @@ import Header from '../Header';
 
 import './Profile.scss';
 
-export default function Profile({ user = {} }) {
+export default function Profile({ user = {}, loggedIn, ...props }) {
   useTitle('Профиль');
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} />
       <main className="profile">
         <h2 className="profile__title">Привет, {user.name}!</h2>
 
@@ -27,7 +27,11 @@ export default function Profile({ user = {} }) {
           <button type="button" className="profile__button">
             Редактировать
           </button>
-          <button type="button" className="profile__button profile__button_type_dangerous">
+          <button
+            onClick={props.handleSignOut}
+            type="button"
+            className="profile__button profile__button_type_dangerous"
+          >
             Выйти из аккаунта
           </button>
         </div>
