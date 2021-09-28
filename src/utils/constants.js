@@ -8,6 +8,9 @@ export const paths = {
 };
 
 export const pathNames = {
+  global: {
+    title: 'Movies Explorer',
+  },
   search: {
     title: 'Фильмы',
   },

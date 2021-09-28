@@ -23,7 +23,7 @@ function Header({ loggedIn }) {
     <header className="header">
       <nav className="header__links">
         <Link to={paths.main} className="logo header__logo">
-          <img className="logo__img" alt="Movies Explorer" src={logo} />
+          <img className="logo__img" alt={pathNames.global.title} src={logo} />
         </Link>
 
         {loggedIn && (

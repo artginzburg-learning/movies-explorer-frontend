@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
-const defaultTitle = 'Movies Explorer';
+import { pathNames } from '../utils/constants';
+
+const defaultTitle = pathNames.global.title;
 
 export const useTitle = (title) => {
   useEffect(() => {
