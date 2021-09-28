@@ -45,7 +45,7 @@ export default function Navigation(props) {
         </ul>
 
         <Link to={paths.account} className="profile-button navigation__profile-button">
-          Аккаунт
+          {pathNames.account.title}
         </Link>
       </nav>
     </section>,

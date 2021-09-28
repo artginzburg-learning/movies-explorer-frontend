@@ -22,9 +22,6 @@ export const pathNames = {
     title: 'Регистрация',
     action: 'Зарегистрироваться',
   },
-  quit: {
-    action: 'Выйти из аккаунта',
-  },
   account: {
     title: 'Аккаунт',
   },

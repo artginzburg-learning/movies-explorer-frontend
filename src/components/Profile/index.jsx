@@ -1,4 +1,5 @@
 import { useTitle } from '../../hooks/useTitle';
+
 import Header from '../Header';
 
 import './Profile.scss';
