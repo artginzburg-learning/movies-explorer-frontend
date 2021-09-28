@@ -44,23 +44,30 @@ const LoginOrRegister = memo(({ form, ...props }) => {
       <h2 className="auth__title">{props.title}</h2>
 
       <Form onSubmit={handleSubmit} onReset={form.reset}>
-        <FormInput
-          {...propsForInputs}
-          autoFocus
-          {...form.register(inputNames.email)}
-          id={inputNames.email}
-          type={inputNames.email}
-          autoComplete={inputNames.email}
-          placeholder="Email"
-        />
-        <FormInput
-          {...propsForInputs}
-          {...form.register(inputNames.password)}
-          type={inputNames.password}
-          id={props.passwordAutocomplete}
-          autoComplete={props.passwordAutocomplete}
-          placeholder="Пароль"
-        />
+        {props.children}
+        <label>
+          <p>E-mail</p>
+          <FormInput
+            {...propsForInputs}
+            autoFocus
+            {...form.register(inputNames.email)}
+            id={inputNames.email}
+            type={inputNames.email}
+            autoComplete={inputNames.email}
+            placeholder="mail@example.com"
+          />
+        </label>
+        <label>
+          <p>Пароль</p>
+          <FormInput
+            {...propsForInputs}
+            {...form.register(inputNames.password)}
+            type={inputNames.password}
+            id={props.passwordAutocomplete}
+            autoComplete={props.passwordAutocomplete}
+          />
+        </label>
+
         <button
           type="submit"
           disabled={form.isInvalid || buttonIsSaving}
@@ -69,7 +76,13 @@ const LoginOrRegister = memo(({ form, ...props }) => {
           {buttonTitle}
         </button>
       </Form>
-      {props.children}
+
+      <p className="auth__signin">
+        {`${props.otherOption.tagline} `}
+        <Link to={props.otherOption.path} className="auth__login-link">
+          {props.otherOption.title}
+        </Link>
+      </p>
     </div>
   );
 });
