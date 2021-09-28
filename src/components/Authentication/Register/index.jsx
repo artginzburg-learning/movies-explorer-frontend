@@ -20,7 +20,19 @@ const defaultProps = {
 const Register = memo((props) => {
   useTitle(pathNames.register.title);
 
-  return <LoginOrRegister {...props} {...defaultProps}></LoginOrRegister>;
+  return (
+    <LoginOrRegister
+      {...props}
+      {...defaultProps}
+      additionalInput={{
+        title: 'Имя',
+        name: 'name',
+        props: {
+          placeholder: 'Арт',
+        },
+      }}
+    />
+  );
 });
 
 export default Register;

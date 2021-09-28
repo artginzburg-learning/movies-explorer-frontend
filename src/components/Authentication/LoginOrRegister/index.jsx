@@ -20,7 +20,7 @@ const inputNames = {
   password: 'password',
 };
 
-const LoginOrRegister = memo(({ form, ...props }) => {
+const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
   const [buttonIsSaving, setButtonIsSaving] = useState(false);
 
   const buttonTitle = buttonIsSaving ? `${props.buttonSavingTitle}...` : props.buttonTitle;
@@ -44,12 +44,25 @@ const LoginOrRegister = memo(({ form, ...props }) => {
       <h2 className="auth__title">{props.title}</h2>
 
       <Form onSubmit={handleSubmit} onReset={form.reset}>
-        {props.children}
+        {additionalInput && (
+          <label>
+            <p>{additionalInput.title}</p>
+            <FormInput
+              {...propsForInputs}
+              autoFocus
+              {...form.register(additionalInput.name)}
+              id={additionalInput.name}
+              type={additionalInput.name}
+              autoComplete={additionalInput.name}
+              {...additionalInput.props}
+            />
+          </label>
+        )}
         <label>
           <p>E-mail</p>
           <FormInput
             {...propsForInputs}
-            autoFocus
+            {...{ autoFocus: !additionalInput }}
             {...form.register(inputNames.email)}
             id={inputNames.email}
             type={inputNames.email}
