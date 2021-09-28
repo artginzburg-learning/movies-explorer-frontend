@@ -1,5 +1,9 @@
 import { memo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
+import logo from '../../../images/logo.svg';
+
+import { paths } from '../../../utils/constants';
 import { formClassesConfig } from '../../../utils/utils';
 
 import Form from './Form';
@@ -33,6 +37,10 @@ const LoginOrRegister = memo(({ form, ...props }) => {
 
   return (
     <div className="content auth">
+      <Link to={paths.main} className="logo header__logo">
+        <img className="logo__img" alt="Movies Explorer" src={logo} />
+      </Link>
+
       <h2 className="auth__title">{props.title}</h2>
 
       <Form onSubmit={handleSubmit} onReset={form.reset}>
