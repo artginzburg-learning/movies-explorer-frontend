@@ -8,6 +8,12 @@ export const paths = {
 };
 
 export const pathNames = {
+  search: {
+    title: 'Фильмы',
+  },
+  saved: {
+    title: 'Сохранённые фильмы',
+  },
   login: {
     title: 'Вход',
     action: 'Войти',
@@ -17,6 +23,9 @@ export const pathNames = {
     action: 'Зарегистрироваться',
   },
   quit: {
-    action: 'Выйти',
+    action: 'Выйти из аккаунта',
+  },
+  account: {
+    title: 'Аккаунт',
   },
 };

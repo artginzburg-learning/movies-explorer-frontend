@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
-import { paths } from '../../utils/constants';
+import { pathNames, paths } from '../../utils/constants';
 
 import Navigation from '../Navigation';
 
@@ -33,14 +33,14 @@ function Header({ loggedIn }) {
               to={paths.search}
               className="header__navigation-link"
             >
-              Фильмы
+              {pathNames.search.title}
             </NavLink>
             <NavLink
               activeClassName="header__navigation-link_active"
               to={paths.saved}
               className="header__navigation-link"
             >
-              Сохранённые фильмы
+              {pathNames.saved.title}
             </NavLink>
           </div>
         )}
@@ -50,7 +50,7 @@ function Header({ loggedIn }) {
         {loggedIn ? (
           <>
             <Link to={paths.account} className="profile-button header__profile-button">
-              Аккаунт
+              {pathNames.account.title}
             </Link>
             <button type="button" onClick={openMenu} className="header__burger" />
             {isMenuOpen && <Navigation onClose={closeMenu} />}
@@ -58,10 +58,10 @@ function Header({ loggedIn }) {
         ) : (
           <>
             <Link to={paths.register} className="header__profile-link">
-              Регистрация
+              {pathNames.register.title}
             </Link>
             <Link to={paths.login} className="header__profile-link">
-              Войти
+              {pathNames.login.action}
             </Link>
           </>
         )}

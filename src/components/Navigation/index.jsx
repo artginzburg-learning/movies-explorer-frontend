@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { Link, NavLink } from 'react-router-dom';
 
-import { paths } from '../../utils/constants';
+import { pathNames, paths } from '../../utils/constants';
 
 import './Navigation.scss';
 
@@ -30,7 +30,7 @@ export default function Navigation(props) {
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
-              Фильмы
+              {pathNames.search.title}
             </NavLink>
           </li>
           <li className="navigation__list-item">
@@ -39,7 +39,7 @@ export default function Navigation(props) {
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
-              Сохранённые фильмы
+              {pathNames.saved.title}
             </NavLink>
           </li>
         </ul>
