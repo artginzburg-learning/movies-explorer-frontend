@@ -37,7 +37,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
 
   return (
     <div className="content auth">
-      <Link to={paths.main} className="logo header__logo">
+      <Link to={paths.main} className="logo">
         <img className="logo__img" alt={pathNames.global.title} src={logo} />
       </Link>
 
