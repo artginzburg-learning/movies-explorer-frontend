@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
+import { paths } from '../../utils/constants';
+
 import Navigation from '../Navigation';
 
 import './Header.scss';
@@ -20,7 +22,7 @@ function Header({ loggedIn }) {
   return (
     <header className="header">
       <nav className="header__links">
-        <Link to="/" className="logo header__logo">
+        <Link to={paths.main} className="logo header__logo">
           <img className="logo__img" alt="Movies Explorer" src={logo} />
         </Link>
 
@@ -28,14 +30,14 @@ function Header({ loggedIn }) {
           <div className="header__navigation">
             <NavLink
               activeClassName="header__navigation-link_active"
-              to="/movies"
+              to={paths.search}
               className="header__navigation-link"
             >
               Фильмы
             </NavLink>
             <NavLink
               activeClassName="header__navigation-link_active"
-              to="/saved-movies"
+              to={paths.saved}
               className="header__navigation-link"
             >
               Сохранённые фильмы
@@ -47,7 +49,7 @@ function Header({ loggedIn }) {
       <div className="header__profile">
         {loggedIn ? (
           <>
-            <Link to="/profile" className="profile-button header__profile-button">
+            <Link to={paths.account} className="profile-button header__profile-button">
               Аккаунт
             </Link>
             <button type="button" onClick={openMenu} className="header__burger" />
@@ -55,10 +57,10 @@ function Header({ loggedIn }) {
           </>
         ) : (
           <>
-            <Link to="/signup" className="header__profile-link">
+            <Link to={paths.register} className="header__profile-link">
               Регистрация
             </Link>
-            <Link to="/signin" className="header__profile-link">
+            <Link to={paths.login} className="header__profile-link">
               Войти
             </Link>
           </>

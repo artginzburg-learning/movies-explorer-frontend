@@ -1,6 +1,8 @@
 import { createPortal } from 'react-dom';
 import { Link, NavLink } from 'react-router-dom';
 
+import { paths } from '../../utils/constants';
+
 import './Navigation.scss';
 
 const modalRoot = document.getElementById('modal-root');
@@ -15,7 +17,7 @@ export default function Navigation(props) {
           <li className="navigation__list-item">
             <NavLink
               exact
-              to="/"
+              to={paths.main}
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
@@ -24,7 +26,7 @@ export default function Navigation(props) {
           </li>
           <li className="navigation__list-item">
             <NavLink
-              to="/movies"
+              to={paths.search}
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
@@ -33,7 +35,7 @@ export default function Navigation(props) {
           </li>
           <li className="navigation__list-item">
             <NavLink
-              to="/saved-movies"
+              to={paths.saved}
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
@@ -42,7 +44,7 @@ export default function Navigation(props) {
           </li>
         </ul>
 
-        <Link to="/profile" className="profile-button navigation__profile-button">
+        <Link to={paths.account} className="profile-button navigation__profile-button">
           Аккаунт
         </Link>
       </nav>
