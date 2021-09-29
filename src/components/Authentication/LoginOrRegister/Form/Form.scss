@@ -1,8 +1,12 @@
 @import '../../../../styles/colors';
+@import '../../../../styles/shared';
 
 .form {
   display: flex;
   flex-direction: column;
+
+  justify-content: space-between;
+  min-height: 60vh;
 
   &__container {
     min-height: 266px;
@@ -42,8 +46,6 @@
   }
 
   &__button {
-    margin-top: 69px;
-
     background-color: $accent;
     color: inherit;
 
