@@ -1,0 +1,96 @@
+@import '../../../../styles/colors';
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    min-height: 266px;
+  }
+
+  &__label {
+    margin: 0 0 10px;
+
+    font-size: 10px;
+    line-height: 12px;
+
+    color: $font-2;
+  }
+
+  &__error {
+    margin: 4px 0;
+
+    font-size: 10px;
+    line-height: 12px;
+
+    min-height: 12px;
+
+    color: $error;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transition-property: opacity;
+    transition-duration: 0.4s;
+
+    &_visible {
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    margin-top: 69px;
+
+    background-color: $accent;
+    color: inherit;
+
+    border: 1px solid #000;
+    outline: none;
+    border-radius: 3px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    padding: 13px 0;
+
+    cursor: pointer;
+
+    transition-property: opacity, background-color, color, font-size, line-height, margin-top;
+    transition-duration: 0.2s;
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:not(:disabled):active {
+      transform: scale(0.95);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.2;
+
+      border-color: #fff;
+
+      background-color: transparent;
+
+      cursor: default;
+
+      &:active {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

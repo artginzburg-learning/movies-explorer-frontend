@@ -36,50 +36,52 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
   }
 
   return (
-    <div className="content auth">
-      <Link to={paths.main} className="logo">
+    <div className="auth">
+      <Link to={paths.main} className="logo auth__logo">
         <img className="logo__img" alt={pathNames.global.title} src={logo} />
       </Link>
 
       <h2 className="auth__title">{props.title}</h2>
 
       <Form onSubmit={handleSubmit} onReset={form.reset}>
-        {additionalInput && (
+        <div className="form__container">
+          {additionalInput && (
+            <label>
+              <p className="form__label">{additionalInput.title}</p>
+              <FormInput
+                {...propsForInputs}
+                autoFocus
+                {...form.register(additionalInput.name)}
+                id={additionalInput.name}
+                type={additionalInput.name}
+                autoComplete={additionalInput.name}
+                {...additionalInput.props}
+              />
+            </label>
+          )}
           <label>
-            <p>{additionalInput.title}</p>
+            <p className="form__label">E-mail</p>
             <FormInput
               {...propsForInputs}
-              autoFocus
-              {...form.register(additionalInput.name)}
-              id={additionalInput.name}
-              type={additionalInput.name}
-              autoComplete={additionalInput.name}
-              {...additionalInput.props}
+              {...{ autoFocus: !additionalInput }}
+              {...form.register(inputNames.email)}
+              id={inputNames.email}
+              type={inputNames.email}
+              autoComplete={inputNames.email}
+              placeholder="mail@example.com"
             />
           </label>
-        )}
-        <label>
-          <p>E-mail</p>
-          <FormInput
-            {...propsForInputs}
-            {...{ autoFocus: !additionalInput }}
-            {...form.register(inputNames.email)}
-            id={inputNames.email}
-            type={inputNames.email}
-            autoComplete={inputNames.email}
-            placeholder="mail@example.com"
-          />
-        </label>
-        <label>
-          <p>Пароль</p>
-          <FormInput
-            {...propsForInputs}
-            {...form.register(inputNames.password)}
-            type={inputNames.password}
-            id={props.passwordAutocomplete}
-            autoComplete={props.passwordAutocomplete}
-          />
-        </label>
+          <label>
+            <p className="form__label">Пароль</p>
+            <FormInput
+              {...propsForInputs}
+              {...form.register(inputNames.password)}
+              type={inputNames.password}
+              id={props.passwordAutocomplete}
+              autoComplete={props.passwordAutocomplete}
+            />
+          </label>
+        </div>
 
         <button
           type="submit"
@@ -92,7 +94,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
 
       <p className="auth__signin">
         {`${props.otherOption.tagline} `}
-        <Link to={props.otherOption.path} className="auth__login-link">
+        <Link to={props.otherOption.path} className="auth__signin-link">
           {props.otherOption.title}
         </Link>
       </p>

@@ -1,5 +1,7 @@
 import { memo, useCallback } from 'react';
 
+import './Form.scss';
+
 const Form = memo(({ onSubmit, ...props }) => {
   const handleSubmit = useCallback(
     (e) => {

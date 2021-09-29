@@ -9,6 +9,8 @@ import useValidatedForm from '../../hooks/useValidatedForm';
 import Login from './Login';
 import Register from './Register';
 
+import './Authentication.scss';
+
 const Authentication = memo((props) => {
   const form = useValidatedForm({
     email: parseFixedLocalBase64Value('email') ?? '',
