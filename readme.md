@@ -15,7 +15,7 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/artginzburg/movies-explorer-api"><-- Prev.</a>
+  <a href="https://github.com/artginzburg-learning/movies-explorer-api"><-- Prev.</a>
   &nbsp;
   <code><a href="https://github.com/artginzburg/yandex.praktikum-portfolio">Portfolio</a></code>
   &nbsp;
