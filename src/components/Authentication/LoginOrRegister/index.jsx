@@ -79,6 +79,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
               type={inputNames.password}
               id={props.passwordAutocomplete}
               autoComplete={props.passwordAutocomplete}
+              placeholder="n4Gorshke7idelKING"
             />
           </label>
         </div>
