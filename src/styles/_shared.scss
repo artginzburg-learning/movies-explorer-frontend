@@ -23,10 +23,18 @@
   user-select: none;
   cursor: pointer;
 
-  &:active {
+  &:not(:disabled):active {
     transform: scale(0.85);
     transition-duration: 0.2s;
     transition-timing-function: ease;
+  }
+
+  &:disabled {
+    cursor: default;
+
+    &:active {
+      cursor: not-allowed;
+    }
   }
 
   @media (hover: hover) {

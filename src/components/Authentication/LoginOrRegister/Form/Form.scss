@@ -46,6 +46,9 @@
   }
 
   &__button {
+    @include link-shared;
+    @extend %default-link-effects;
+
     background-color: $accent;
     color: inherit;
 
@@ -59,20 +62,11 @@
 
     padding: 13px 0;
 
-    cursor: pointer;
-
-    transition-property: opacity, background-color, color, font-size, line-height, margin-top;
-    transition-duration: 0.2s;
-
     -webkit-tap-highlight-color: transparent;
     user-select: none;
 
     &:first-child {
       margin-top: 0;
-    }
-
-    &:not(:disabled):active {
-      transform: scale(0.95);
     }
 
     @media (hover: hover) {
@@ -87,12 +81,6 @@
       border-color: #fff;
 
       background-color: transparent;
-
-      cursor: default;
-
-      &:active {
-        cursor: not-allowed;
-      }
     }
   }
 }

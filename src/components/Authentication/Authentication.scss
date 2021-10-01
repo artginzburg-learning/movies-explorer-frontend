@@ -57,19 +57,10 @@
     }
 
     &-link {
+      @include link-shared;
+      @extend %default-link-effects;
+
       color: $accent;
-      text-decoration-line: none;
-
-      transition-property: opacity;
-      transition-duration: 0.2s;
-
-      -webkit-tap-highlight-color: transparent;
-
-      @media (hover: hover) {
-        &:hover {
-          opacity: 0.6;
-        }
-      }
     }
   }
 }
