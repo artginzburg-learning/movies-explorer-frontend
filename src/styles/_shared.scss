@@ -39,13 +39,13 @@
 
   @media (hover: hover) {
     &:hover {
-      opacity: 0.6;
+      opacity: 0.7;
     }
   }
 }
 
 %default-link-effects-notransform {
-  &:active {
+  &:not(:disabled):active {
     transform: unset;
   }
 }
