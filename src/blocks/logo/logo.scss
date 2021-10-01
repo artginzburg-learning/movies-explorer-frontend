@@ -1,0 +1,8 @@
+@import '../../styles/landing';
+
+.logo {
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+
+  @extend %default-link-effects;
+}

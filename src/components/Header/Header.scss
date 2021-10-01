@@ -1,0 +1,122 @@
+@import '../../styles/shared';
+@import '../../styles/colors';
+@import '../../styles/landing';
+
+$header-section-offset: 16px;
+$header-logo-size: 38px;
+
+.header {
+  @extend %default-padding;
+
+  padding: {
+    top: $header-section-offset;
+    bottom: $header-section-offset;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  max-height: 70px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  pointer-events: none;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    position: absolute;
+  }
+
+  & * {
+    pointer-events: all;
+  }
+
+  &__links {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+  }
+
+  &__logo {
+    max-width: $header-logo-size;
+    max-height: $header-logo-size;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 16px;
+
+    &-link {
+      @include link-shared;
+      @extend %default-link-effects;
+
+      font-size: $default-font-size-links;
+      line-height: 138%;
+
+      &_active {
+        font-weight: 500;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    @include link-shared;
+    @extend %default-link-effects;
+
+    width: 44px;
+    height: 44px;
+
+    border: 0;
+
+    background: {
+      image: url(../../images/menu-icon.svg);
+      repeat: no-repeat;
+      position: center;
+      color: transparent;
+    }
+
+    display: none;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      display: block;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    gap: 10px;
+
+    &-button {
+      @media screen and (max-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+
+    &-link {
+      @include link-shared;
+      @extend %default-link-effects;
+
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 133%;
+
+      padding: 8px 20px;
+
+      &:last-child {
+        color: $landing-button;
+        background-color: $main-1;
+
+        border-radius: 3px;
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+@import '../../../styles/colors';
+@import '../../../styles/landing';
+
+$_input-padding: 80px;
+$_input-height: 34px;
+$_label-offset: 29px;
+$_label-offset-mobile: 43px;
+
+.searchform {
+  @extend %default-padding;
+
+  padding: {
+    top: 74px + 70px;
+    bottom: 48px - $_label-offset;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-bottom: 51px - $_label-offset-mobile;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    border: none;
+    border-bottom: 1px solid $stroke-2;
+
+    &-container {
+      padding: 12px 0;
+      position: relative;
+
+      display: block;
+      cursor: text;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        padding: {
+          top: 9px;
+          bottom: 9px;
+        }
+      }
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        &::before {
+          content: '';
+          width: $_input-height;
+          height: $_input-height;
+
+          margin: 6px;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          border: 1px solid $stroke-2;
+          border-radius: 50%;
+
+          background: {
+            image: url('../../../images/search-icon.svg');
+            repeat: no-repeat;
+            position: center;
+          }
+        }
+      }
+    }
+  }
+
+  &__input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    font-weight: 500;
+    font-size: 28px;
+    line-height: $_input-height;
+
+    padding: 0 $_input-padding;
+
+    text-align: center;
+    color: inherit;
+
+    width: 100%;
+
+    transition-property: text-shadow;
+    transition-duration: 0.2s;
+
+    &::placeholder {
+      color: $font-2;
+    }
+
+    &::-webkit-search-cancel-button {
+      filter: invert(1);
+      transition-duration: 0.04s;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      text-align: left;
+      padding-left: 0;
+
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    &:focus {
+      text-shadow: 0 0 8px #4285f4;
+    }
+  }
+
+  &__submit {
+    @extend %default-link-effects;
+
+    position: absolute;
+    top: auto;
+    right: 0;
+
+    width: $_input-padding;
+    height: $_input-height;
+
+    background: {
+      color: #4285f4;
+      image: url('../../../images/search-icon.svg');
+      repeat: no-repeat;
+      position: center;
+    }
+
+    padding: 0;
+    border: none;
+
+    border-radius: 48px;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      top: 0;
+    }
+  }
+
+  &__label {
+    user-select: none;
+    margin: $_label-offset 0;
+
+    display: flex;
+    align-content: center;
+
+    font-size: 14px;
+    line-height: 129%;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      margin: $_label-offset-mobile 0;
+    }
+  }
+
+  $switch-base-height: 20px;
+  $switch-base-width: 18px;
+  $switch-base-margin: 2px;
+
+  &__switch {
+    @extend %default-link-effects;
+    @extend %default-link-effects-noopacity;
+
+    appearance: none;
+    cursor: pointer;
+
+    width: $switch-base-width * 2;
+    height: $switch-base-height;
+
+    position: relative;
+    background-color: $switch-disabled;
+    border-radius: $switch-base-height;
+
+    margin-right: 12px;
+    transition-property: background-color, transform;
+    transition-duration: 0.25s;
+
+    &::after {
+      @extend %default-link-effects;
+      @extend %default-link-effects-noopacity;
+
+      transition-property: margin, transform, box-shadow;
+      background-color: $switch-disabled-cap;
+
+      box-shadow: 0 $switch-base-margin 6px rgba(0, 0, 0, 0.08);
+
+      content: '';
+      display: block;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      margin: $switch-base-margin;
+      width: $switch-base-width - $switch-base-margin;
+      height: $switch-base-width - $switch-base-margin;
+
+      border-radius: 50%;
+    }
+
+    &:checked {
+      background-color: $main-1;
+
+      &::after {
+        margin-left: $switch-base-width;
+        background-color: $global-text;
+      }
+    }
+
+    &:hover::after {
+      box-shadow: 0 0 8px $global-background;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+@import '../../../styles/shared';
+@import '../../../styles/colors';
+@import '../../../styles/landing';
+
+$techs-section-offset: 100px;
+$techs-section-offset-mobile: 70px;
+
+.techs {
+  @extend %default-padding-landing;
+
+  padding: {
+    top: $techs-section-offset;
+    bottom: $techs-section-offset;
+  }
+
+  background-color: $landing-1;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      top: $techs-section-offset-mobile;
+      bottom: $techs-section-offset-mobile;
+    }
+
+    background-color: unset;
+  }
+
+  &__title {
+    @include landing-heading;
+  }
+
+  &__content {
+    padding-top: 90px;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-top: 60px;
+    }
+  }
+
+  &__heading {
+    @include landing-title;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      font-size: 40px;
+      line-height: 100%;
+    }
+
+    @include landing-title-mobile;
+
+    text-align: center;
+  }
+
+  &__text {
+    @include landing-text;
+    @include default-letter-spacing;
+
+    text-align: center;
+
+    padding-bottom: $techs-section-offset;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__list {
+    @include reset-list-style;
+
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(90px, auto));
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(84px, auto));
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding: 0 40px;
+    }
+
+    &-item {
+      text-align: center;
+    }
+
+    &-link {
+      @include link-shared;
+      @include landing-list-item-small;
+      @include default-letter-spacing;
+
+      display: block;
+      padding: 21px 0;
+      border-radius: 10px;
+
+      @extend %default-link-effects;
+
+      transition-property: background-color, color, opacity, transform;
+      background-color: $landing-shapes;
+
+      &:hover {
+        background-color: $stroke-landing;
+        color: $landing-button;
+      }
+    }
+  }
+}

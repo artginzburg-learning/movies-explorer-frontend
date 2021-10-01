@@ -1,0 +1,111 @@
+@mixin link-shared {
+  color: inherit;
+  text-decoration-line: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin heading-shared {
+  font-weight: normal;
+  margin: 0;
+}
+
+@mixin reset-list-style {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+
+%default-link-effects {
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+  cursor: pointer;
+
+  &:not(:disabled):active {
+    transform: scale(0.85);
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
+
+  &:disabled {
+    cursor: default;
+
+    &:active {
+      cursor: not-allowed;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+%default-link-effects-notransform {
+  &:not(:disabled):active {
+    transform: unset;
+  }
+}
+
+%default-link-effects-noopacity {
+  @media (hover: hover) {
+    &:hover {
+      opacity: unset;
+    }
+  }
+}
+
+// anything wider is for 1280px design
+$breakpoint-tablet: 1023px; // for 768px design
+$breakpoint-mobile: 694px; // for 320px design
+
+$_default-padding-landing: 70px;
+$_default-padding-landing-tablet: 50px;
+$_default-padding-landing-mobile: 14px;
+%default-padding-landing {
+  padding: {
+    left: $_default-padding-landing;
+    right: $_default-padding-landing;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: {
+      left: $_default-padding-landing-tablet;
+      right: $_default-padding-landing-tablet;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      left: $_default-padding-landing-mobile;
+      right: $_default-padding-landing-mobile;
+    }
+  }
+}
+
+$_default-padding: 70px;
+$_default-padding-tablet: 30px;
+$_default-padding-mobile: 14px;
+%default-padding {
+  padding: {
+    left: $_default-padding;
+    right: $_default-padding;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: {
+      left: $_default-padding-tablet;
+      right: $_default-padding-tablet;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: {
+      left: $_default-padding-mobile;
+      right: $_default-padding-mobile;
+    }
+  }
+}

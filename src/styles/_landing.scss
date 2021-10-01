@@ -1,0 +1,64 @@
+@import 'shared';
+@import 'colors';
+
+$default-font-size-links: 13px;
+$default-font-size-texts: 14px;
+$default-font-size-list-items: 14px;
+
+@mixin default-letter-spacing {
+  letter-spacing: -0.04em;
+}
+
+@mixin landing-heading {
+  @include heading-shared;
+
+  font-size: 22px;
+  line-height: 27px;
+  @include default-letter-spacing;
+
+  padding-bottom: 23px;
+  border-bottom: 1px solid $stroke-landing;
+}
+
+@mixin landing-title {
+  @include heading-shared;
+
+  font-size: 50px;
+  line-height: 116%;
+  @include default-letter-spacing;
+}
+@mixin landing-title-tablet {
+  @media screen and (max-width: $breakpoint-tablet) {
+    font-size: 40px;
+    line-height: 100%;
+  }
+}
+@mixin landing-title-mobile {
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+@mixin landing-text {
+  font-size: $default-font-size-texts;
+  line-height: 143%;
+
+  padding-top: 26px;
+  margin: 0;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 11px;
+    line-height: 145%;
+  }
+}
+
+@mixin landing-list-item-small {
+  font-size: $default-font-size-list-items;
+  line-height: 17px;
+}
+
+@mixin aboutme-subheading {
+  font-size: 18px;
+  line-height: 111%;
+}

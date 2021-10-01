@@ -1,0 +1,82 @@
+@import '../../../../styles/colors';
+
+.form__input {
+  width: 100%;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  padding: 15px;
+  padding-bottom: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2f2f2f;
+
+  font-size: 13px;
+  line-height: 16px;
+
+  color: inherit;
+
+  border-bottom: 1px solid transparent;
+
+  transition-property: color, box-shadow, border-bottom;
+  transition-duration: 0.15s;
+
+  -webkit-tap-highlight-color: transparent;
+
+  &::placeholder {
+    color: $font-2;
+
+    user-select: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 12px $landing-button;
+    border-bottom: 1px solid $accent;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-text-fill-color: #000;
+    border-color: #bb1f1f;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset;
+  }
+
+  &_type {
+    &_error {
+      color: $error;
+    }
+  }
+
+  &_theme_dark {
+    &::-webkit-credentials-auto-fill-button {
+      background-color: #eee;
+      transform: scale(1.2);
+
+      transition-property: transform, opacity;
+      transition-duration: 0.15s;
+    }
+
+    &::-webkit-credentials-auto-fill-button:hover {
+      opacity: 0.7;
+    }
+
+    &::-webkit-credentials-auto-fill-button:active {
+      transform: scale(0.9);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: #fff;
+      border-color: #0ff;
+      -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+      box-shadow: 0 0 0px 1000px #000 inset;
+    }
+  }
+}

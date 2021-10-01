@@ -1,0 +1,63 @@
+@import '../../../styles/shared';
+@import '../../../styles/colors';
+@import '../../../styles/landing';
+
+$portfolio-padding: 20px;
+
+.portfolio {
+  @extend %default-padding-landing;
+
+  padding-bottom: calc(125px - #{$portfolio-padding});
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-bottom: calc(70px - #{$portfolio-padding});
+  }
+
+  &__title {
+    @include heading-shared;
+    @include aboutme-subheading;
+
+    color: $font-2;
+  }
+
+  &__links {
+    @include reset-list-style;
+
+    padding-top: 30px;
+
+    &-item {
+      padding: $portfolio-padding 0;
+      box-sizing: border-box;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $stroke-2;
+      }
+    }
+  }
+
+  &__link {
+    @include link-shared;
+    @include default-letter-spacing;
+    @extend %default-link-effects;
+    @extend %default-link-effects-notransform;
+
+    display: block;
+    position: relative;
+
+    font-size: 30px;
+    line-height: 167%;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 18px;
+      line-height: 156%;
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+
+      content: '↗';
+      line-height: 200%;
+    }
+  }
+}

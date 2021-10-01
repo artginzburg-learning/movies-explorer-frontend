@@ -1,0 +1,108 @@
+@import '../../../styles/shared';
+@import '../../../styles/colors';
+@import '../../../styles/landing';
+@import '../../../styles/gaps';
+
+$aboutproject-section-offset: 110px;
+$aboutproject-offset-mobile: 60px;
+
+.aboutproject {
+  @extend %default-padding-landing;
+
+  padding: {
+    top: $aboutproject-section-offset;
+    bottom: $aboutproject-section-offset;
+  }
+
+  &__title {
+    @include landing-heading;
+  }
+
+  &__columns {
+    @include reset-list-style;
+    @include default-gap-medium;
+
+    display: flex;
+    row-gap: $aboutproject-offset-mobile;
+
+    padding: {
+      top: 70px;
+      bottom: $aboutproject-section-offset;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+
+      padding: {
+        top: $aboutproject-offset-mobile;
+        bottom: $aboutproject-offset-mobile;
+      }
+    }
+  }
+
+  &__heading {
+    @include heading-shared;
+
+    font-size: 20px;
+    line-height: 24px;
+    @include default-letter-spacing;
+  }
+
+  &__text {
+    @include landing-text;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-top: 16px;
+    }
+  }
+
+  &__plan {
+    @include reset-list-style;
+
+    width: 100%;
+    display: flex;
+
+    &-segment {
+      display: grid;
+      gap: 14px;
+
+      &:first-of-type {
+        flex-grow: 1;
+
+        .aboutproject__plan-heading {
+          background-color: $main-1;
+          color: $landing-button;
+        }
+      }
+      &:last-of-type {
+        flex-grow: 4;
+
+        .aboutproject__plan-heading {
+          background-color: $landing-shapes;
+        }
+      }
+    }
+
+    &-heading {
+      @include landing-list-item-small;
+
+      min-height: 36px;
+
+      margin: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-text {
+      font-weight: 500;
+      font-size: $default-font-size-list-items;
+      line-height: 121%;
+      text-align: center;
+      color: $font-2;
+
+      margin: 0;
+    }
+  }
+}

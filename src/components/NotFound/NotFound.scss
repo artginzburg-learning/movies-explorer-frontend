@@ -1,0 +1,76 @@
+@import '../../styles/shared';
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 5px;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    row-gap: 10px;
+  }
+
+  &__title {
+    @include heading-shared;
+
+    font-size: 140px;
+    line-height: 169px;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 80px;
+      line-height: 97px;
+    }
+  }
+
+  &__subtitle {
+    @include heading-shared;
+
+    font-size: 16px;
+    line-height: 19px;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding-bottom: 60px;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      padding-bottom: 222px;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__link {
+    @include link-shared;
+
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #4285f4;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}

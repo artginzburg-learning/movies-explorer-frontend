@@ -1,0 +1,28 @@
+@import '../../styles/shared';
+@import '../../styles/colors';
+@import '../../styles/landing';
+
+.profile-button {
+  @include link-shared;
+  @extend %default-link-effects;
+
+  background: {
+    image: url('../../images/profile-icon.svg');
+    repeat: no-repeat;
+    position: 10px center;
+  }
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 114%;
+
+  display: block;
+  text-align: right;
+  box-sizing: border-box;
+
+  min-width: 100px;
+  padding: 8px 10px;
+
+  border: 2px solid rgba(170, 170, 170, 0.2);
+  border-radius: 50px;
+}
