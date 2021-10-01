@@ -1,7 +1,6 @@
 @import '../../../../styles/colors';
 
 .form__input {
-  min-height: 37px;
   width: 100%;
 
   outline: none;
@@ -18,7 +17,9 @@
 
   color: inherit;
 
-  transition-property: color;
+  border-bottom: 1px solid transparent;
+
+  transition-property: color, box-shadow, border-bottom;
   transition-duration: 0.15s;
 
   -webkit-tap-highlight-color: transparent;
@@ -27,6 +28,11 @@
     color: $font-2;
 
     user-select: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 12px $landing-button;
+    border-bottom: 1px solid $accent;
   }
 
   &:-webkit-autofill,

@@ -87,6 +87,9 @@ $_label-offset-mobile: 43px;
 
     width: 100%;
 
+    transition-property: text-shadow;
+    transition-duration: 0.2s;
+
     &::placeholder {
       color: $font-2;
     }
@@ -102,6 +105,10 @@ $_label-offset-mobile: 43px;
 
       font-size: 18px;
       line-height: 22px;
+    }
+
+    &:focus {
+      text-shadow: 0 0 8px #4285f4;
     }
   }
 
