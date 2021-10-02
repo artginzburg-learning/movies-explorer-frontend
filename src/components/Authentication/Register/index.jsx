@@ -29,6 +29,7 @@ const Register = memo((props) => {
         name: 'name',
         props: {
           placeholder: 'Арт',
+          pattern: '[A-Za-zА-ЯЁа-яё -]+',
         },
       }}
     />
