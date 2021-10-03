@@ -35,7 +35,7 @@ export default function MoviesCard({ card, isSaved, type, ...props }) {
 
           <img
             className="moviescard__image"
-            src={`https://${apiDomain}${card.image.url}`}
+            src={type==='add' ? `https://${apiDomain}${card.image.url}` : card.image}
             alt={name}
           />
         </figure>

@@ -2,9 +2,11 @@ import { homepage } from '../../package.json';
 
 import Api from './Api';
 
+const { NODE_ENV } = process.env;
+
 const apiHomepage = new URL(homepage);
 apiHomepage.hostname = `api.${apiHomepage.hostname}`;
-const apiPath = apiHomepage;
+const apiPath = NODE_ENV === 'production' ? apiHomepage : 'https://localhost:3001/';
 
 const api = {
   host: apiPath,

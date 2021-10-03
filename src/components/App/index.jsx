@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { paths } from '../../utils/constants';
+import { apiDomain, paths } from '../../utils/constants';
 import scrollToTop from '../../utils/scrollToTop';
 
 import mainApi from '../../utils/MainApi';
@@ -65,11 +65,25 @@ function App() {
   async function handleCardSave(card) {
     const oldSavedCards = savedCards;
 
-    setSavedCards([card, ...savedCards]);
+    const cardToSave = {
+      country: card.country,
+      director: card.director,
+      duration: card.duration,
+      year: card.year,
+      description: card.description,
+      image: `https://${apiDomain}${card.image.url}`,
+      trailer: card.trailerLink,
+      thumbnail: `https://${apiDomain}${card.image.formats.thumbnail.url}`,
+      movieId: String(card.id),
+      nameRU: card.nameRU,
+      nameEN: card.nameEN,
+    };
+
+    setSavedCards([cardToSave, ...savedCards]);
 
     try {
-      const newCard = await mainApi.saveMovie(card);
-      setSavedCards(savedCards.map((c) => (c._id === card._id ? newCard : c)));
+      const newCard = await mainApi.saveMovie(cardToSave);
+      setSavedCards([newCard, ...savedCards]);
       return newCard;
     } catch (error) {
       setSavedCards(oldSavedCards);
@@ -91,7 +105,6 @@ function App() {
       .then((res) => {
         if (res) {
           handleLogin(res.email);
-          history.replace(paths.main);
         }
       })
       .catch((err) => {
@@ -99,7 +112,7 @@ function App() {
 
         console.log(err);
       });
-  }, [handleLogin, history, setLoggedIn]);
+  }, [handleLogin, setLoggedIn]);
 
   function handleSubmitRegister(e_, email, password, name) {
     return mainApi
