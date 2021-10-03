@@ -7,9 +7,13 @@ import './MoviesCardList.scss';
 export default function MoviesCardList({ filterShort, cards, savedCards, type, ...props }) {
   const currentUser = useCurrentUser();
 
-  const personalSavedCards = savedCards.filter(
-    (card) => !card.owner || (card.owner._id ?? card.owner === currentUser._id),
-  );
+  const personalSavedCards = savedCards.filter((card) => {
+    if (!card.owner) {
+      return true;
+    }
+
+    return (card.owner._id ?? card.owner) === currentUser._id;
+  });
 
   const filterShortIfNeeded = (card) => (filterShort ? card.duration <= 40 : true);
 
