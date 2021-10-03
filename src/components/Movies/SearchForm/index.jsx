@@ -1,6 +1,12 @@
 import './SearchForm.scss';
 
-export default function SearchForm() {
+export default function SearchForm({ filterShortState }) {
+  const [filterShort, setFilterShort] = filterShortState;
+
+  function toggleFilterShort() {
+    setFilterShort(!filterShort);
+  }
+
   return (
     <section className="searchform">
       <form className="searchform__form">
@@ -11,7 +17,12 @@ export default function SearchForm() {
           </label>
         </fieldset>
         <label className="searchform__label">
-          <input className="searchform__switch" type="checkbox" />
+          <input
+            checked={filterShort}
+            onChange={toggleFilterShort}
+            className="searchform__switch"
+            type="checkbox"
+          />
           Короткометражки
         </label>
       </form>
