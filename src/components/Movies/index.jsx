@@ -12,15 +12,17 @@ export default function Movies({ cards = [], savedCards = [], type = 'add', logg
   useTitle(type === 'add' ? pathNames.search.title : pathNames.saved.title);
 
   const filterShortState = useState(false);
+  const queryState = useState('');
 
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main>
-        <SearchForm filterShortState={filterShortState} />
+        <SearchForm filterShortState={filterShortState} queryState={queryState} />
         <MoviesCardList
           {...props}
           filterShort={filterShortState[0]}
+          query={queryState[0]}
           type={type}
           cards={cards}
           savedCards={savedCards}

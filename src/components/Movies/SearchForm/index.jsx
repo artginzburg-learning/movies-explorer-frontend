@@ -1,7 +1,12 @@
 import './SearchForm.scss';
 
-export default function SearchForm({ filterShortState }) {
+export default function SearchForm({ filterShortState, queryState }) {
   const [filterShort, setFilterShort] = filterShortState;
+  const [query, setQuery] = queryState;
+
+  function updateQuery(e) {
+    setQuery(e.target.value);
+  }
 
   function toggleFilterShort() {
     setFilterShort(!filterShort);
@@ -12,7 +17,14 @@ export default function SearchForm({ filterShortState }) {
       <form className="searchform__form">
         <fieldset className="searchform__fieldset">
           <label className="searchform__fieldset-container">
-            <input required className="searchform__input" type="search" placeholder="Фильм" />
+            <input
+              value={query}
+              onChange={updateQuery}
+              required
+              className="searchform__input"
+              type="search"
+              placeholder="Фильм"
+            />
             <button className="searchform__submit" type="submit" />
           </label>
         </fieldset>

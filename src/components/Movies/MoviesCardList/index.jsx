@@ -4,7 +4,7 @@ import MoviesCard from '../MoviesCard';
 
 import './MoviesCardList.scss';
 
-export default function MoviesCardList({ filterShort, cards, savedCards, type, ...props }) {
+export default function MoviesCardList({ query, filterShort, cards, savedCards, type, ...props }) {
   const currentUser = useCurrentUser();
 
   const personalSavedCards = savedCards.filter((card) => {
@@ -16,6 +16,11 @@ export default function MoviesCardList({ filterShort, cards, savedCards, type, .
   });
 
   const filterShortIfNeeded = (card) => (filterShort ? card.duration <= 40 : true);
+  const filterSearch = (card) =>
+    query
+      ? card.nameRU?.toLowerCase().includes(query.toLowerCase()) ||
+        card.nameEN?.toLowerCase().includes(query.toLowerCase())
+      : true;
 
   return (
     <section className="moviescards">
@@ -23,6 +28,7 @@ export default function MoviesCardList({ filterShort, cards, savedCards, type, .
         {type === 'add'
           ? cards
               .filter(filterShortIfNeeded)
+              .filter(filterSearch)
               .map((card) => (
                 <MoviesCard
                   {...props}
@@ -34,6 +40,7 @@ export default function MoviesCardList({ filterShort, cards, savedCards, type, .
               ))
           : personalSavedCards
               .filter(filterShortIfNeeded)
+              .filter(filterSearch)
               .map((card) => (
                 <MoviesCard
                   {...props}
