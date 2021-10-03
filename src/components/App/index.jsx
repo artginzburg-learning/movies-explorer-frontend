@@ -48,6 +48,35 @@ function App() {
     }
   }, [loggedIn, setCards, setCurrentUser, setSavedCards]);
 
+  const handleCardDelete = useCallback(
+    (card) => {
+      const oldSavedCards = savedCards;
+
+      setSavedCards(savedCards.filter((c) => c._id !== card._id));
+
+      return mainApi.deleteMovie(card._id).catch((error) => {
+        setSavedCards(oldSavedCards);
+        console.log('Couldnt delete card on the server', error);
+      });
+    },
+    [savedCards, setSavedCards],
+  );
+
+  async function handleCardSave(card) {
+    const oldSavedCards = savedCards;
+
+    setSavedCards([card, ...savedCards]);
+
+    try {
+      const newCard = await mainApi.saveMovie(card);
+      setSavedCards(savedCards.map((c) => (c._id === card._id ? newCard : c)));
+      return newCard;
+    } catch (error) {
+      setSavedCards(oldSavedCards);
+      console.error(error);
+    }
+  }
+
   const handleLogin = useCallback(
     (email) => {
       setEmail(email);
@@ -134,10 +163,23 @@ function App() {
           />
         </Route>
         <ProtectedRoute path={paths.search} loggedIn={loggedIn}>
-          <Movies savedCards={savedCards} cards={cards} loggedIn={loggedIn} />
+          <Movies
+            onCardSave={handleCardSave}
+            onCardDelete={handleCardDelete}
+            savedCards={savedCards}
+            cards={cards}
+            loggedIn={loggedIn}
+          />
         </ProtectedRoute>
         <ProtectedRoute path={paths.saved} loggedIn={loggedIn}>
-          <Movies savedCards={savedCards} cards={cards} type="remove" loggedIn={loggedIn} />
+          <Movies
+            onCardSave={handleCardSave}
+            onCardDelete={handleCardDelete}
+            savedCards={savedCards}
+            cards={cards}
+            type="remove"
+            loggedIn={loggedIn}
+          />
         </ProtectedRoute>
         <ProtectedRoute path={paths.account} loggedIn={loggedIn}>
           <Profile handleSignOut={handleSignOut} loggedIn={loggedIn} />

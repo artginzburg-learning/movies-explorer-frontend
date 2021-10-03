@@ -15,10 +15,14 @@ function durationDeclension(duration) {
   return `${duration} ${declOfNum(duration, ['минута', 'минуты', 'минут'])}`;
 }
 
-export default function MoviesCard({ card, type }) {
+export default function MoviesCard({ card, isSaved, type, ...props }) {
   const buttonClassNames = ['moviescard__button', `moviescard__button_type_${type}`];
 
   const name = card.nameRU || card.nameEN;
+
+  function handleSaveOrDeleteClick() {
+    isSaved ? props.onCardDelete(card) : props.onCardSave(card);
+  }
 
   return (
     <li className="moviescard">
@@ -39,7 +43,8 @@ export default function MoviesCard({ card, type }) {
 
       <input
         type="checkbox"
-        defaultChecked={type === 'add' ? card.added : !card.added}
+        checked={type === 'add' ? isSaved : !isSaved}
+        onChange={handleSaveOrDeleteClick}
         {...classNames(buttonClassNames)}
       />
     </li>

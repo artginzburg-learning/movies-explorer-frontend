@@ -7,7 +7,7 @@ import Header from '../Header';
 import MoviesCardList from './MoviesCardList';
 import SearchForm from './SearchForm';
 
-export default function Movies({ cards = [], type = 'add', loggedIn }) {
+export default function Movies({ cards = [], savedCards = [], type = 'add', loggedIn, ...props }) {
   useTitle(type === 'add' ? pathNames.search.title : pathNames.saved.title);
 
   return (
@@ -15,7 +15,7 @@ export default function Movies({ cards = [], type = 'add', loggedIn }) {
       <Header loggedIn={loggedIn} />
       <main>
         <SearchForm />
-        <MoviesCardList type={type} cards={cards} />
+        <MoviesCardList {...props} type={type} cards={cards} savedCards={savedCards} />
       </main>
       <Footer />
     </>
