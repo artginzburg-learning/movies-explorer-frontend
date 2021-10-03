@@ -52,9 +52,13 @@ function App() {
     (card) => {
       const oldSavedCards = savedCards;
 
-      setSavedCards(savedCards.filter((c) => c._id !== card._id));
+      const cardToDelete = card.id ? savedCards.find((c) => c.movieId === String(card.id)) : card;
 
-      return mainApi.deleteMovie(card._id).catch((error) => {
+      setSavedCards(
+        savedCards.filter((c) => (card.id ? c.movieId !== String(card.id) : c._id !== card._id)),
+      );
+
+      return mainApi.deleteMovie(cardToDelete._id).catch((error) => {
         setSavedCards(oldSavedCards);
         console.log('Couldnt delete card on the server', error);
       });

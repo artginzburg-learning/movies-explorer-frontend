@@ -7,7 +7,9 @@ import './MoviesCardList.scss';
 export default function MoviesCardList({ cards, savedCards, type, ...props }) {
   const currentUser = useCurrentUser();
 
-  const personalSavedCards = savedCards.filter((card) => !card.owner || (card.owner._id ?? card.owner === currentUser._id));
+  const personalSavedCards = savedCards.filter(
+    (card) => !card.owner || (card.owner._id ?? card.owner === currentUser._id),
+  );
 
   return (
     <section className="moviescards">
