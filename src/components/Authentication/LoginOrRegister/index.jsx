@@ -28,9 +28,9 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
   function handleSubmit(e) {
     setButtonIsSaving(true);
 
-    const { email, password } = form.getData();
+    const { name, email, password } = form.getData();
 
-    props.handleSubmit(e, email, password).finally(() => {
+    props.handleSubmit(e, email, password, name).finally(() => {
       setButtonIsSaving(false);
     });
   }

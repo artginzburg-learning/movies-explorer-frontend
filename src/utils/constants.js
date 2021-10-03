@@ -1,3 +1,5 @@
+export const apiDomain = 'api.nomoreparties.co';
+
 export const paths = {
   main: '/',
   search: '/movies',

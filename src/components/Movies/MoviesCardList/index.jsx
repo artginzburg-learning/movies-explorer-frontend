@@ -7,7 +7,7 @@ export default function MoviesCardList({ cards, type }) {
     <section className="moviescards">
       <ul className="moviescards__list">
         {cards.map((card) => (
-          <MoviesCard card={card} type={type} key={card.movieId ?? Math.random()} />
+          <MoviesCard card={card} type={type} key={card.id ?? Math.random()} />
         ))}
       </ul>
     </section>

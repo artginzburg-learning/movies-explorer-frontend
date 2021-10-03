@@ -5,110 +5,48 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import { paths } from '../../utils/constants';
 import scrollToTop from '../../utils/scrollToTop';
 
+import mainApi from '../../utils/MainApi';
+import moviesApi from '../../utils/MoviesApi';
+
 import useStateWithLocalStorage from '../../hooks/useStateWithLocalStorage';
 import useStateWithBase64 from '../../hooks/useStateWithBase64';
+
+import { CurrentUserProvider, defaultUserState } from '../../contexts/CurrentUserContext';
 
 import Authentication from '../Authentication';
 import Main from '../Main';
 import Movies from '../Movies';
 import NotFound from '../NotFound';
 import Profile from '../Profile';
-
-const cardsFound = [
-  {
-    name: 'Banksy Most Wanted',
-    duration: 1,
-    img: 'https://avatars.mds.yandex.net/get-ott/1531675/2a00000173a565fcbce995019978598333fb/678x380',
-    added: true,
-  },
-  {
-    name: 'В погоне за Бэнкси',
-    duration: 228,
-    img: 'https://static3.coolconnections.ru/images/12592/standard/hd/b9c88a679ecbec643da28f7d32e8904a3bde4758.jpg?1594733558',
-  },
-  {
-    name: 'Это погоня, крч',
-    duration: 103,
-    img: 'https://www.film.ru/sites/default/files/movies/posters/49621981-1239252.jpg',
-  },
-  {
-    name: 'Banksy Most Wanted',
-    duration: 1,
-    img: 'https://avatars.mds.yandex.net/get-ott/1531675/2a00000173a565fcbce995019978598333fb/678x380',
-    added: true,
-  },
-  {
-    name: 'В погоне за Бэнкси',
-    duration: 228,
-    img: 'https://static3.coolconnections.ru/images/12592/standard/hd/b9c88a679ecbec643da28f7d32e8904a3bde4758.jpg?1594733558',
-  },
-  {
-    name: 'Это погоня, крч',
-    duration: 103,
-    img: 'https://www.film.ru/sites/default/files/movies/posters/49621981-1239252.jpg',
-  },
-  {
-    name: 'Banksy Most Wanted',
-    duration: 1,
-    img: 'https://avatars.mds.yandex.net/get-ott/1531675/2a00000173a565fcbce995019978598333fb/678x380',
-    added: true,
-  },
-  {
-    name: 'В погоне за Бэнкси',
-    duration: 228,
-    img: 'https://static3.coolconnections.ru/images/12592/standard/hd/b9c88a679ecbec643da28f7d32e8904a3bde4758.jpg?1594733558',
-  },
-  {
-    name: 'Это погоня, крч',
-    duration: 103,
-    img: 'https://www.film.ru/sites/default/files/movies/posters/49621981-1239252.jpg',
-  },
-  {
-    name: 'Banksy Most Wanted',
-    duration: 101,
-    img: 'https://avatars.mds.yandex.net/get-ott/1531675/2a00000173a565fcbce995019978598333fb/678x380',
-    added: true,
-  },
-  {
-    name: 'В погоне за Бэнкси',
-    duration: 228,
-    img: 'https://static3.coolconnections.ru/images/12592/standard/hd/b9c88a679ecbec643da28f7d32e8904a3bde4758.jpg?1594733558',
-  },
-  {
-    name: 'Это погоня, крч',
-    duration: 103,
-    img: 'https://www.film.ru/sites/default/files/movies/posters/49621981-1239252.jpg',
-  },
-  {
-    name: 'Banksy Most Wanted',
-    duration: 1,
-    img: 'https://avatars.mds.yandex.net/get-ott/1531675/2a00000173a565fcbce995019978598333fb/678x380',
-    added: true,
-  },
-  {
-    name: 'В погоне за Бэнкси',
-    duration: 228,
-    img: 'https://static3.coolconnections.ru/images/12592/standard/hd/b9c88a679ecbec643da28f7d32e8904a3bde4758.jpg?1594733558',
-  },
-  {
-    name: 'Это погоня, крч',
-    duration: 103,
-    img: 'https://www.film.ru/sites/default/files/movies/posters/49621981-1239252.jpg',
-  },
-];
-
-const cardsSaved = cardsFound.filter((card) => card.added);
+import ProtectedRoute from '../ProtectedRoute';
 
 function App() {
   const history = useHistory();
 
-  const [loggedIn, setLoggedIn] = useStateWithLocalStorage('loggedIn', false);
-  const [email, setEmail] = useStateWithBase64('email', '');
+  const [currentUser, setCurrentUser] = useStateWithLocalStorage('currentUser', defaultUserState);
 
-  const user = {
-    name: 'Артур',
-    email,
-  };
+  const [loggedIn, setLoggedIn] = useStateWithLocalStorage('loggedIn', false);
+  const setEmail = useStateWithBase64('email', '')[1];
+
+  const [cards, setCards] = useStateWithLocalStorage('cards', []);
+  const [savedCards, setSavedCards] = useStateWithLocalStorage('savedCards', []);
+
+  useEffect(() => {
+    if (loggedIn) {
+      mainApi
+        .getUserInfo()
+        .then(setCurrentUser)
+        .catch((err) => console.log('Couldnt get user info from the server', err));
+      moviesApi
+        .getAllMovies()
+        .then(setCards)
+        .catch((err) => console.log('Couldnt get initial cards from the server', err));
+      mainApi
+        .getMovies()
+        .then(setSavedCards)
+        .catch((err) => console.log('Couldnt get saved cards from the server', err));
+    }
+  }, [loggedIn, setCards, setCurrentUser, setSavedCards]);
 
   const handleLogin = useCallback(
     (email) => {
@@ -119,19 +57,30 @@ function App() {
   );
 
   const handleTokenCheck = useCallback(() => {
-    if (localStorage.token) {
-      handleLogin(email);
-    } else {
-      setLoggedIn(false);
-    }
-  }, [email, handleLogin, setLoggedIn]);
+    mainApi
+      .getUserInfo()
+      .then((res) => {
+        if (res) {
+          handleLogin(res.email);
+          history.replace(paths.main);
+        }
+      })
+      .catch((err) => {
+        setLoggedIn(false);
 
-  function handleSubmitRegister(e_, email, password) {
-    return new Promise((resolve, reject) => {
-      history.replace(paths.login);
+        console.log(err);
+      });
+  }, [handleLogin, history, setLoggedIn]);
 
-      resolve();
-    });
+  function handleSubmitRegister(e_, email, password, name) {
+    return mainApi
+      .register(email, password, name)
+      .then(() => {
+        history.replace(paths.login);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleSubmitLogin(e, email, password) {
@@ -139,23 +88,32 @@ function App() {
       return;
     }
 
-    return new Promise((resolve, reject) => {
-      e.target.reset();
+    return mainApi
+      .login(email, password)
+      .then((data) => {
+        if (data) {
+          e.target.reset();
 
-      localStorage.token = Math.random();
-
-      handleLogin(email);
-      history.push(paths.search);
-
-      resolve();
-    });
+          handleLogin(email);
+          history.push(paths.main);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleSignOut() {
-    delete localStorage.token;
-    setLoggedIn(false);
-    history.replace(paths.main);
-    scrollToTop();
+    mainApi
+      .logout()
+      .then(() => {
+        setLoggedIn(false);
+        history.replace(paths.login);
+        scrollToTop();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   useEffect(() => {
@@ -163,28 +121,30 @@ function App() {
   }, [handleTokenCheck]);
 
   return (
-    <Switch>
-      <Route exact path={paths.main}>
-        <Main loggedIn={loggedIn} />
-      </Route>
-      <Route path={[paths.register, paths.login]}>
-        <Authentication
-          loggedIn={loggedIn}
-          handleLogin={handleSubmitLogin}
-          handleRegister={handleSubmitRegister}
-        />
-      </Route>
-      <Route path={paths.search}>
-        <Movies cards={cardsFound} loggedIn={loggedIn} />
-      </Route>
-      <Route path={paths.saved}>
-        <Movies cards={cardsSaved} type="remove" loggedIn={loggedIn} />
-      </Route>
-      <Route path={paths.account}>
-        <Profile user={user} handleSignOut={handleSignOut} loggedIn={loggedIn} />
-      </Route>
-      <Route component={NotFound} />
-    </Switch>
+    <CurrentUserProvider state={currentUser} dispatch={setCurrentUser}>
+      <Switch>
+        <Route exact path={paths.main}>
+          <Main loggedIn={loggedIn} />
+        </Route>
+        <Route path={[paths.register, paths.login]}>
+          <Authentication
+            loggedIn={loggedIn}
+            handleLogin={handleSubmitLogin}
+            handleRegister={handleSubmitRegister}
+          />
+        </Route>
+        <ProtectedRoute path={paths.search} loggedIn={loggedIn}>
+          <Movies savedCards={savedCards} cards={cards} loggedIn={loggedIn} />
+        </ProtectedRoute>
+        <ProtectedRoute path={paths.saved} loggedIn={loggedIn}>
+          <Movies savedCards={savedCards} cards={cards} type="remove" loggedIn={loggedIn} />
+        </ProtectedRoute>
+        <ProtectedRoute path={paths.account} loggedIn={loggedIn}>
+          <Profile handleSignOut={handleSignOut} loggedIn={loggedIn} />
+        </ProtectedRoute>
+        <Route component={NotFound} />
+      </Switch>
+    </CurrentUserProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 @import '../../../styles/colors';
 @import '../../../styles/landing';
+@import '../../../styles/shared';
 
 .moviescard {
   width: 360px;
@@ -20,6 +21,11 @@
   @media screen and (max-width: $breakpoint-mobile) {
     width: 300px;
     height: 271px;
+  }
+
+  &__link {
+    @include link-shared;
+    @extend %default-link-effects;
   }
 
   &__figure {
