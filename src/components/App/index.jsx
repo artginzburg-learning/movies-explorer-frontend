@@ -141,7 +141,7 @@ function App() {
           e.target.reset();
 
           handleLogin(email);
-          history.push(paths.main);
+          history.push(paths.search);
         }
       })
       .catch((err) => {
@@ -154,7 +154,7 @@ function App() {
       .logout()
       .then(() => {
         setLoggedIn(false);
-        history.replace(paths.login);
+        history.replace(paths.main);
         scrollToTop();
       })
       .catch((err) => {
