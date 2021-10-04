@@ -16,7 +16,9 @@ function Header({ loggedIn }) {
   }, []);
 
   const closeMenu = useCallback((e) => {
-    e.target === e.currentTarget && setIsMenuOpen(false);
+    if (!e || e.target === e.currentTarget) {
+      setIsMenuOpen(false);
+    }
   }, []);
 
   return (
