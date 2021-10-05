@@ -1,7 +1,15 @@
+@import '../../styles/colors';
+
 .movies {
   &__status {
     text-align: center;
     margin: 0;
     padding: 20px;
+
+    &_type {
+      &_error {
+        color: $font-2;
+      }
+    }
   }
 }

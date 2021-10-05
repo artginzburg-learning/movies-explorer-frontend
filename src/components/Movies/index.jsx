@@ -30,19 +30,31 @@ export default function Movies({ savedCards = [], type = 'add', loggedIn, ...pro
   const filterShort = filterShortState[0];
 
   const [cards, setCards] = useStateWithLocalStorage('cards', []);
-  const [cardsAreFetched, setCardsAreFetched] = useState(false);
+  const [lastCardsFetch, setLastCardsFetch] = useStateWithLocalStorage('lastCardsFetch', 0);
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const cardsAreOutdated = (Date.now() - lastCardsFetch) / (1000 * 60 * 60 * 24) >= 1;
 
   useEffect(() => {
-    if (query && !cardsAreFetched) {
+    if (query && (cardsAreOutdated || !cards.length)) {
       moviesApi
         .getAllMovies()
         .then((newCards) => {
           setCards(newCards);
-          setCardsAreFetched(true);
+          setLastCardsFetch(Date.now());
+          setErrorMessage('');
         })
-        .catch((err) => console.log('Couldnt get initial cards from the server', err));
+        .catch((err) => {
+          setErrorMessage(
+            cards.length
+              ? 'Обновить список фильмов не удалось, но поиск по сохранённому списку возможен.'
+              : 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+          );
+          console.log('Couldnt get initial cards from the server', err);
+        });
     }
-  }, [setCards, query, cardsAreFetched]);
+  }, [setCards, query, lastCardsFetch, setLastCardsFetch, cardsAreOutdated, cards]);
 
   const personalSavedCards = savedCards.filter((card) => {
     if (!card.owner) {
@@ -70,7 +82,7 @@ export default function Movies({ savedCards = [], type = 'add', loggedIn, ...pro
       <Header loggedIn={loggedIn} />
       <main>
         <SearchForm filterShortState={filterShortState} queryState={queryState} />
-        {nothingFound ? (
+        {cards.length && nothingFound ? (
           <p className="movies__status">Ничего не найдено</p>
         ) : !query && type === 'add' ? null : cards ? (
           <MoviesCardList
@@ -83,6 +95,7 @@ export default function Movies({ savedCards = [], type = 'add', loggedIn, ...pro
         ) : (
           <Preloader />
         )}
+        {errorMessage && <p className="movies__status movies__status_type_error">{errorMessage}</p>}
       </main>
       <Footer />
     </>
