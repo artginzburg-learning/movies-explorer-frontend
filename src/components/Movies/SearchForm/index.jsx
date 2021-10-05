@@ -1,3 +1,5 @@
+import { moviesConfig } from '../../../utils/moviesConfig';
+
 import './SearchForm.scss';
 
 export default function SearchForm({ filterShortState, queryState }) {
@@ -30,7 +32,10 @@ export default function SearchForm({ filterShortState, queryState }) {
             <button className="searchform__submit" type="submit" />
           </label>
         </fieldset>
-        <label className="searchform__label">
+        <label
+          title={`Длительность <= ${moviesConfig.shortDuration}`}
+          className="searchform__label"
+        >
           <input
             checked={filterShort}
             onChange={toggleFilterShort}

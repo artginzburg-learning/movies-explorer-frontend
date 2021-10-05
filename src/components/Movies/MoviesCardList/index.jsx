@@ -1,5 +1,7 @@
 import { useCurrentUser } from '../../../contexts/CurrentUserContext';
 
+import { moviesConfig } from '../../../utils/moviesConfig';
+
 import MoviesCard from '../MoviesCard';
 
 import './MoviesCardList.scss';
@@ -15,7 +17,8 @@ export default function MoviesCardList({ query, filterShort, cards, savedCards, 
     return (card.owner._id ?? card.owner) === currentUser._id;
   });
 
-  const filterShortIfNeeded = (card) => (filterShort ? card.duration <= 40 : true);
+  const filterShortIfNeeded = (card) =>
+    filterShort ? card.duration <= moviesConfig.shortDuration : true;
   const filterSearch = (card) =>
     query
       ? card.nameRU?.toLowerCase().includes(query.toLowerCase()) ||
