@@ -6,7 +6,6 @@ import { apiDomain, paths } from '../../utils/constants';
 import scrollToTop from '../../utils/scrollToTop';
 
 import mainApi from '../../utils/MainApi';
-import moviesApi from '../../utils/MoviesApi';
 
 import useStateWithLocalStorage from '../../hooks/useStateWithLocalStorage';
 import useStateWithBase64 from '../../hooks/useStateWithBase64';
@@ -28,7 +27,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useStateWithLocalStorage('loggedIn', false);
   const setEmail = useStateWithBase64('email', '')[1];
 
-  const [cards, setCards] = useStateWithLocalStorage('cards', []);
   const [savedCards, setSavedCards] = useStateWithLocalStorage('savedCards', []);
 
   useEffect(() => {
@@ -37,16 +35,12 @@ function App() {
         .getUserInfo()
         .then(setCurrentUser)
         .catch((err) => console.log('Couldnt get user info from the server', err));
-      moviesApi
-        .getAllMovies()
-        .then(setCards)
-        .catch((err) => console.log('Couldnt get initial cards from the server', err));
       mainApi
         .getMovies()
         .then(setSavedCards)
         .catch((err) => console.log('Couldnt get saved cards from the server', err));
     }
-  }, [loggedIn, setCards, setCurrentUser, setSavedCards]);
+  }, [loggedIn, setCurrentUser, setSavedCards]);
 
   const handleCardDelete = useCallback(
     (card) => {
@@ -184,7 +178,6 @@ function App() {
             onCardSave={handleCardSave}
             onCardDelete={handleCardDelete}
             savedCards={savedCards}
-            cards={cards}
             loggedIn={loggedIn}
           />
         </ProtectedRoute>
@@ -193,7 +186,6 @@ function App() {
             onCardSave={handleCardSave}
             onCardDelete={handleCardDelete}
             savedCards={savedCards}
-            cards={cards}
             type="remove"
             loggedIn={loggedIn}
           />
