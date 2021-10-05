@@ -1,4 +1,4 @@
-@import '../../../../styles/colors';
+@import '../../styles/colors';
 
 .form__input {
   width: 100%;
@@ -33,7 +33,7 @@
 
   &:focus {
     box-shadow: 0 0 12px $landing-button;
-    border-bottom: 1px solid $accent;
+    border-color: $accent;
   }
 
   &:-webkit-autofill,
@@ -50,6 +50,31 @@
   &_type {
     &_error {
       color: $error;
+      border-color: $error;
+    }
+  }
+
+  &-error {
+    margin: 4px 0;
+
+    font-size: 10px;
+    line-height: 12px;
+
+    min-height: 12px;
+
+    color: $error;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transition-property: opacity;
+    transition-duration: 0.4s;
+
+    &_visible {
+      opacity: 1;
     }
   }
 

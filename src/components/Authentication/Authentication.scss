@@ -42,6 +42,15 @@
     }
   }
 
+  &__label {
+    margin: 0 0 10px;
+
+    font-size: 10px;
+    line-height: 12px;
+
+    color: $font-2;
+  }
+
   &__signin {
     font-size: 14px;
     line-height: 17px;

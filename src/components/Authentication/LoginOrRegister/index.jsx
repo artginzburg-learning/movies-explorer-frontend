@@ -6,8 +6,8 @@ import logo from '../../../images/logo.svg';
 import { pathNames, paths } from '../../../utils/constants';
 import { formClassesConfig } from '../../../utils/utils';
 
-import Form from './Form';
-import FormInput from './FormInput';
+import Form from '../../Form';
+import FormInput from '../../FormInput';
 
 const propsForInputs = {
   autoCorrect: 'off',
@@ -47,7 +47,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
         <div className="form__container">
           {additionalInput && (
             <label>
-              <p className="form__label">{additionalInput.title}</p>
+              <p className="auth__label">{additionalInput.title}</p>
               <FormInput
                 {...propsForInputs}
                 autoFocus
@@ -60,7 +60,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
             </label>
           )}
           <label>
-            <p className="form__label">E-mail</p>
+            <p className="auth__label">E-mail</p>
             <FormInput
               {...propsForInputs}
               {...{ autoFocus: !additionalInput }}
@@ -72,7 +72,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
             />
           </label>
           <label>
-            <p className="form__label">Пароль</p>
+            <p className="auth__label">Пароль</p>
             <FormInput
               {...propsForInputs}
               {...form.register(inputNames.password)}

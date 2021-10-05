@@ -1,5 +1,5 @@
-@import '../../../../styles/colors';
-@import '../../../../styles/shared';
+@import '../../styles/colors';
+@import '../../styles/shared';
 
 .form {
   display: flex;
@@ -10,39 +10,6 @@
 
   &__container {
     min-height: 266px;
-  }
-
-  &__label {
-    margin: 0 0 10px;
-
-    font-size: 10px;
-    line-height: 12px;
-
-    color: $font-2;
-  }
-
-  &__error {
-    margin: 4px 0;
-
-    font-size: 10px;
-    line-height: 12px;
-
-    min-height: 12px;
-
-    color: $error;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    opacity: 0;
-
-    transition-property: opacity;
-    transition-duration: 0.4s;
-
-    &_visible {
-      opacity: 1;
-    }
   }
 
   &__button {
