@@ -2,7 +2,7 @@ import MoviesCard from '../MoviesCard';
 
 import './MoviesCardList.scss';
 
-export default function MoviesCardList({ query, filterShort, cards, savedCards, type, ...props }) {
+export default function MoviesCardList({ cards, savedCards, type, ...props }) {
   return (
     <section className="moviescards">
       <ul className="moviescards__list">
