@@ -18,8 +18,12 @@ import SearchForm from './SearchForm';
 
 import './Movies.scss';
 
-export default function Movies({ savedCards = [], type = 'add', loggedIn, ...props }) {
-  useTitle(type === 'add' ? pathNames.search.title : pathNames.saved.title);
+const defaultType = 'add';
+
+export default function Movies({ savedCards = [], type = defaultType, loggedIn, ...props }) {
+  const typeIsDefault = type === defaultType;
+
+  useTitle(typeIsDefault ? pathNames.search.title : pathNames.saved.title);
 
   const currentUser = useCurrentUser();
 
@@ -56,26 +60,20 @@ export default function Movies({ savedCards = [], type = 'add', loggedIn, ...pro
     }
   }, [setCards, query, lastCardsFetch, setLastCardsFetch, cardsAreOutdated, cards]);
 
-  const personalSavedCards = savedCards.filter((card) => {
-    if (!card.owner) {
-      return true;
-    }
+  const personalSavedCards = savedCards.filter(
+    (card) => !card.owner || (card.owner._id ?? card.owner) === currentUser._id,
+  );
 
-    return (card.owner._id ?? card.owner) === currentUser._id;
-  });
-
-  const filterShortIfNeeded = (card) =>
-    filterShort ? card.duration <= moviesConfig.shortDuration : true;
+  const filterShortIfNeeded = (card) => !filterShort || card.duration <= moviesConfig.shortDuration;
   const filterSearch = (card) =>
-    query
-      ? card.nameRU?.toLowerCase().includes(query.toLowerCase()) ||
-        card.nameEN?.toLowerCase().includes(query.toLowerCase())
-      : true;
+    !query ||
+    card.nameRU?.toLowerCase().includes(query.toLowerCase()) ||
+    card.nameEN?.toLowerCase().includes(query.toLowerCase());
 
   const filteredCards = cards.filter(filterShortIfNeeded).filter(filterSearch);
   const filteredSavedCards = personalSavedCards.filter(filterShortIfNeeded).filter(filterSearch);
 
-  const nothingFound = type === 'add' ? !filteredCards.length : !filteredSavedCards.length;
+  const nothingFound = typeIsDefault ? !filteredCards.length : !filteredSavedCards.length;
 
   return (
     <>
@@ -84,7 +82,7 @@ export default function Movies({ savedCards = [], type = 'add', loggedIn, ...pro
         <SearchForm filterShortState={filterShortState} queryState={queryState} />
         {cards.length && nothingFound ? (
           <p className="movies__status">Ничего не найдено</p>
-        ) : !query && type === 'add' ? null : cards ? (
+        ) : !query && typeIsDefault ? null : cards.length ? (
           <MoviesCardList
             {...props}
             query={query}

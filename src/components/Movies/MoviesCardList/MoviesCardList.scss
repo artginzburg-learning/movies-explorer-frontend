@@ -1,4 +1,5 @@
 @import '../../../styles/shared';
+@import '../../../styles/colors';
 
 .moviescards {
   padding-top: 70px;
@@ -21,15 +22,41 @@
       right: 10px;
     }
   }
-}
 
-.moviescards__list {
-  @include reset-list-style;
+  &__list {
+    @include reset-list-style;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-  row-gap: 28px;
-  column-gap: 32px;
+    row-gap: 28px;
+    column-gap: 32px;
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    padding: 50px 40px 80px;
+
+    &-button {
+      @extend %default-link-effects;
+
+      width: 320px;
+      height: 36px;
+
+      appearance: none;
+      padding: 0;
+
+      border: 1px solid $stroke-2;
+      border-radius: 6px;
+
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+
+      background-color: transparent;
+      color: $global-text;
+    }
+  }
 }
