@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { paths } from '../../utils/constants';
+import { PATHS } from '../../utils/constants';
 
 import './NotFound.scss';
 
@@ -9,7 +9,7 @@ export default function NotFound() {
       <h1 className="notfound__title">404</h1>
       <h2 className="notfound__subtitle">Страница не найдена</h2>
       <nav className="notfound__navigation">
-        <Link to={paths.main} className="notfound__link">
+        <Link to={PATHS.main} className="notfound__link">
           Назад
         </Link>
       </nav>

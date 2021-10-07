@@ -2,8 +2,8 @@ import { useCallback, useEffect } from 'react';
 
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { apiDomain, paths } from '../../utils/constants';
-import scrollToTop from '../../utils/scrollToTop';
+import { API_DOMAIN, PATHS } from '../../utils/constants';
+import { scrollToTop } from '../../utils/scrollToTop';
 
 import mainApi from '../../utils/MainApi';
 
@@ -69,9 +69,9 @@ function App() {
       duration: card.duration,
       year: card.year,
       description: card.description,
-      image: `https://${apiDomain}${card.image.url}`,
+      image: `https://${API_DOMAIN}${card.image.url}`,
       trailer: card.trailerLink,
-      thumbnail: `https://${apiDomain}${card.image.formats.thumbnail.url}`,
+      thumbnail: `https://${API_DOMAIN}${card.image.formats.thumbnail.url}`,
       movieId: String(card.id),
       nameRU: card.nameRU,
       nameEN: card.nameEN,
@@ -128,7 +128,7 @@ function App() {
         e.target.reset();
 
         handleLogin(email);
-        history.push(paths.search);
+        history.push(PATHS.search);
       }
     });
   }
@@ -138,7 +138,7 @@ function App() {
       .logout()
       .then(() => {
         setLoggedIn(false);
-        history.replace(paths.main);
+        history.replace(PATHS.main);
         scrollToTop();
       })
       .catch((err) => {
@@ -153,17 +153,17 @@ function App() {
   return (
     <CurrentUserProvider state={currentUser} dispatch={setCurrentUser}>
       <Switch>
-        <Route exact path={paths.main}>
+        <Route exact path={PATHS.main}>
           <Main loggedIn={loggedIn} />
         </Route>
-        <Route path={[paths.register, paths.login]}>
+        <Route path={[PATHS.register, PATHS.login]}>
           <Authentication
             loggedIn={loggedIn}
             handleLogin={handleSubmitLogin}
             handleRegister={handleSubmitRegister}
           />
         </Route>
-        <ProtectedRoute path={paths.search} loggedIn={loggedIn}>
+        <ProtectedRoute path={PATHS.search} loggedIn={loggedIn}>
           <Movies
             onCardSave={handleCardSave}
             onCardDelete={handleCardDelete}
@@ -171,7 +171,7 @@ function App() {
             loggedIn={loggedIn}
           />
         </ProtectedRoute>
-        <ProtectedRoute path={paths.saved} loggedIn={loggedIn}>
+        <ProtectedRoute path={PATHS.saved} loggedIn={loggedIn}>
           <Movies
             onCardSave={handleCardSave}
             onCardDelete={handleCardDelete}
@@ -180,7 +180,7 @@ function App() {
             loggedIn={loggedIn}
           />
         </ProtectedRoute>
-        <ProtectedRoute path={paths.account} loggedIn={loggedIn}>
+        <ProtectedRoute path={PATHS.account} loggedIn={loggedIn}>
           <Profile handleSignOut={handleSignOut} loggedIn={loggedIn} />
         </ProtectedRoute>
         <Route component={NotFound} />

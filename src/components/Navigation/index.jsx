@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { Link, NavLink } from 'react-router-dom';
 
-import { pathNames, paths } from '../../utils/constants';
+import { PATHNAMES, PATHS } from '../../utils/constants';
 
 import './Navigation.scss';
 
@@ -23,7 +23,7 @@ export default function Navigation(props) {
           <li className="navigation__list-item">
             <NavLink
               exact
-              to={paths.main}
+              to={PATHS.main}
               className="navigation__link"
               activeClassName="navigation__link_active"
             >
@@ -32,28 +32,28 @@ export default function Navigation(props) {
           </li>
           <li className="navigation__list-item">
             <NavLink
-              to={paths.search}
+              to={PATHS.search}
               className="navigation__link"
               activeClassName="navigation__link_active"
               onClick={closeMenuIfNeeded}
             >
-              {pathNames.search.title}
+              {PATHNAMES.search.title}
             </NavLink>
           </li>
           <li className="navigation__list-item">
             <NavLink
-              to={paths.saved}
+              to={PATHS.saved}
               className="navigation__link"
               activeClassName="navigation__link_active"
               onClick={closeMenuIfNeeded}
             >
-              {pathNames.saved.title}
+              {PATHNAMES.saved.title}
             </NavLink>
           </li>
         </ul>
 
-        <Link to={paths.account} className="profile-button navigation__profile-button">
-          {pathNames.account.title}
+        <Link to={PATHS.account} className="profile-button navigation__profile-button">
+          {PATHNAMES.account.title}
         </Link>
       </nav>
     </section>,

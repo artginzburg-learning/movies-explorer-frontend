@@ -9,7 +9,7 @@ import {
 import { useTitle } from '../../hooks/useTitle';
 import useValidatedForm from '../../hooks/useValidatedForm';
 
-import { formClassesConfig } from '../../utils/utils';
+import { FORM_CLASSES } from '../../utils/constants';
 import { classNames } from '../../utils/toClassNames';
 
 import Header from '../Header';
@@ -21,7 +21,7 @@ import './Profile.scss';
 const propsForInputs = {
   autoCorrect: 'off',
   spellCheck: false,
-  className: `${formClassesConfig.inputClass}_theme_dark profile__details-text`,
+  className: `${FORM_CLASSES.inputClass}_theme_dark profile__details-text`,
 };
 
 export default function Profile({ loggedIn, ...props }) {

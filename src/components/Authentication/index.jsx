@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-import { paths } from '../../utils/constants';
+import { PATHS } from '../../utils/constants';
 
 import { parseFixedLocalBase64Value } from '../../hooks/useStateWithBase64';
 import useValidatedForm from '../../hooks/useValidatedForm';
@@ -18,13 +18,13 @@ const Authentication = memo((props) => {
   });
 
   return props.loggedIn ? (
-    <Redirect to={paths.main} />
+    <Redirect to={PATHS.main} />
   ) : (
     <>
-      <Route path={paths.login}>
+      <Route path={PATHS.login}>
         <Login handleSubmit={props.handleLogin} form={form} />
       </Route>
-      <Route path={paths.register}>
+      <Route path={PATHS.register}>
         <Register handleSubmit={props.handleRegister} form={form} />
       </Route>
     </>

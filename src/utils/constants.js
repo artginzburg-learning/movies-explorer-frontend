@@ -1,6 +1,6 @@
-export const apiDomain = 'api.nomoreparties.co';
+export const API_DOMAIN = 'api.nomoreparties.co';
 
-export const paths = {
+export const PATHS = {
   main: '/',
   search: '/movies',
   saved: '/saved-movies',
@@ -9,7 +9,7 @@ export const paths = {
   account: '/profile',
 };
 
-export const pathNames = {
+export const PATHNAMES = {
   global: {
     title: 'Movies Explorer',
   },
@@ -30,4 +30,13 @@ export const pathNames = {
   account: {
     title: 'Аккаунт',
   },
+};
+
+export const MOVIES_CONFIG = {
+  shortDuration: 40,
+};
+
+export const FORM_CLASSES = {
+  inputClass: 'form__input',
+  submitButtonClass: 'form__button',
 };

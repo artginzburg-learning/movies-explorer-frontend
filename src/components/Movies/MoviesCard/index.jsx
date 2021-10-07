@@ -1,4 +1,4 @@
-import { apiDomain } from '../../../utils/constants';
+import { API_DOMAIN } from '../../../utils/constants';
 import { classNames } from '../../../utils/toClassNames';
 
 import './MoviesCard.scss';
@@ -35,7 +35,7 @@ export default function MoviesCard({ card, isSaved, type, ...props }) {
 
           <img
             className="moviescard__image"
-            src={type === 'add' ? `https://${apiDomain}${card.image.url}` : card.image}
+            src={type === 'add' ? `https://${API_DOMAIN}${card.image.url}` : card.image}
             alt={name}
           />
         </figure>

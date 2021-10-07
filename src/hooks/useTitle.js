@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { pathNames } from '../utils/constants';
+import { PATHNAMES } from '../utils/constants';
 
-const defaultTitle = pathNames.global.title;
+const defaultTitle = PATHNAMES.global.title;
 
 export const useTitle = (title) => {
   useEffect(() => {

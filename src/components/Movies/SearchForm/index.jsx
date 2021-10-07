@@ -1,4 +1,4 @@
-import { moviesConfig } from '../../../utils/moviesConfig';
+import { MOVIES_CONFIG } from '../../../utils/constants';
 
 import './SearchForm.scss';
 
@@ -33,7 +33,7 @@ export default function SearchForm({ filterShortState, queryState }) {
           </label>
         </fieldset>
         <label
-          title={`Длительность <= ${moviesConfig.shortDuration}`}
+          title={`Длительность <= ${MOVIES_CONFIG.shortDuration}`}
           className="searchform__label"
         >
           <input

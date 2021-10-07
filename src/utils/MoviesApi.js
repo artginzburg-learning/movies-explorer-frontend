@@ -1,5 +1,5 @@
 import Api from './Api';
-import { apiDomain } from './constants';
+import { API_DOMAIN } from './constants';
 
 class MoviesApi extends Api {
   getAllMovies() {
@@ -7,4 +7,4 @@ class MoviesApi extends Api {
   }
 }
 
-export default new MoviesApi({ baseUrl: `https://${apiDomain}/beatfilm-movies` });
+export default new MoviesApi({ baseUrl: `https://${API_DOMAIN}/beatfilm-movies` });

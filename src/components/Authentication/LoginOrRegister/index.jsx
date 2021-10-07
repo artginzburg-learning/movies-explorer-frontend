@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../../images/logo.svg';
 
-import { pathNames, paths } from '../../../utils/constants';
+import { PATHNAMES, PATHS, FORM_CLASSES } from '../../../utils/constants';
 import { classNames } from '../../../utils/toClassNames';
-import { formClassesConfig } from '../../../utils/utils';
 
 import Form from '../../Form';
 import FormInput from '../../FormInput';
@@ -13,7 +12,7 @@ import FormInput from '../../FormInput';
 const propsForInputs = {
   autoCorrect: 'off',
   spellCheck: false,
-  className: `${formClassesConfig.inputClass}_theme_dark`,
+  className: `${FORM_CLASSES.inputClass}_theme_dark`,
 };
 
 const inputNames = {
@@ -48,8 +47,8 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
 
   return (
     <div className="auth">
-      <Link to={paths.main} className="logo auth__logo">
-        <img className="logo__img" alt={pathNames.global.title} src={logo} />
+      <Link to={PATHS.main} className="logo auth__logo">
+        <img className="logo__img" alt={PATHNAMES.global.title} src={logo} />
       </Link>
 
       <h2 className="auth__title">{props.title}</h2>
@@ -103,7 +102,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
         <button
           type="submit"
           disabled={form.isInvalid || buttonIsSaving}
-          className={`auth__button ${formClassesConfig.submitButtonClass} ${formClassesConfig.submitButtonClass}_theme_dark`}
+          className={`auth__button ${FORM_CLASSES.submitButtonClass} ${FORM_CLASSES.submitButtonClass}_theme_dark`}
         >
           {buttonTitle}
         </button>

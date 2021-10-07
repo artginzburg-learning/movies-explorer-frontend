@@ -5,9 +5,8 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import useStateWithLocalStorage from '../../hooks/useStateWithLocalStorage';
 import { useTitle } from '../../hooks/useTitle';
 
-import { pathNames } from '../../utils/constants';
+import { PATHNAMES, MOVIES_CONFIG } from '../../utils/constants';
 import moviesApi from '../../utils/MoviesApi';
-import { moviesConfig } from '../../utils/moviesConfig';
 
 import Footer from '../Footer';
 import Header from '../Header';
@@ -23,7 +22,7 @@ const defaultType = 'add';
 export default function Movies({ savedCards = [], type = defaultType, loggedIn, ...props }) {
   const typeIsDefault = type === defaultType;
 
-  useTitle(typeIsDefault ? pathNames.search.title : pathNames.saved.title);
+  useTitle(typeIsDefault ? PATHNAMES.search.title : PATHNAMES.saved.title);
 
   const currentUser = useCurrentUser();
 
@@ -64,7 +63,8 @@ export default function Movies({ savedCards = [], type = defaultType, loggedIn, 
     (card) => !card.owner || (card.owner._id ?? card.owner) === currentUser._id,
   );
 
-  const filterShortIfNeeded = (card) => !filterShort || card.duration <= moviesConfig.shortDuration;
+  const filterShortIfNeeded = (card) =>
+    !filterShort || card.duration <= MOVIES_CONFIG.shortDuration;
   const filterSearch = (card) =>
     !query ||
     card.nameRU?.toLowerCase().includes(query.toLowerCase()) ||

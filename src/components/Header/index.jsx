@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
-import { pathNames, paths } from '../../utils/constants';
+import { PATHNAMES, PATHS } from '../../utils/constants';
 
 import Navigation from '../Navigation';
 
@@ -24,25 +24,25 @@ function Header({ loggedIn }) {
   return (
     <header className="header">
       <nav className="header__links">
-        <Link to={paths.main} className="logo header__logo">
-          <img className="logo__img" alt={pathNames.global.title} src={logo} />
+        <Link to={PATHS.main} className="logo header__logo">
+          <img className="logo__img" alt={PATHNAMES.global.title} src={logo} />
         </Link>
 
         {loggedIn && (
           <div className="header__navigation">
             <NavLink
               activeClassName="header__navigation-link_active"
-              to={paths.search}
+              to={PATHS.search}
               className="header__navigation-link"
             >
-              {pathNames.search.title}
+              {PATHNAMES.search.title}
             </NavLink>
             <NavLink
               activeClassName="header__navigation-link_active"
-              to={paths.saved}
+              to={PATHS.saved}
               className="header__navigation-link"
             >
-              {pathNames.saved.title}
+              {PATHNAMES.saved.title}
             </NavLink>
           </div>
         )}
@@ -51,19 +51,19 @@ function Header({ loggedIn }) {
       <div className="header__profile">
         {loggedIn ? (
           <>
-            <Link to={paths.account} className="profile-button header__profile-button">
-              {pathNames.account.title}
+            <Link to={PATHS.account} className="profile-button header__profile-button">
+              {PATHNAMES.account.title}
             </Link>
             <button type="button" onClick={openMenu} className="header__burger" />
             {isMenuOpen && <Navigation onClose={closeMenu} />}
           </>
         ) : (
           <>
-            <Link to={paths.register} className="header__profile-link">
-              {pathNames.register.title}
+            <Link to={PATHS.register} className="header__profile-link">
+              {PATHNAMES.register.title}
             </Link>
-            <Link to={paths.login} className="header__profile-link">
-              {pathNames.login.action}
+            <Link to={PATHS.login} className="header__profile-link">
+              {PATHNAMES.login.action}
             </Link>
           </>
         )}

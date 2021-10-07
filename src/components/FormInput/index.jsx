@@ -1,6 +1,6 @@
 import { forwardRef, createRef, useEffect } from 'react';
 
-import { formClassesConfig } from '../../utils/utils';
+import { FORM_CLASSES } from '../../utils/constants';
 import { classNames } from '../../utils/toClassNames';
 
 import './FormInput.scss';
@@ -47,17 +47,17 @@ const FormInput = forwardRef(
         <input
           {...props}
           {...classNames([
-            formClassesConfig.inputClass,
-            validationMessage && `${formClassesConfig.inputClass}_type_error`,
+            FORM_CLASSES.inputClass,
+            validationMessage && `${FORM_CLASSES.inputClass}_type_error`,
             props.className,
           ])}
           {...finalProps}
         />
         <p
           {...classNames([
-            `${formClassesConfig.inputClass}-error`,
+            `${FORM_CLASSES.inputClass}-error`,
             `${props.className}-error`,
-            validationMessage && `${formClassesConfig.inputClass}-error_visible`,
+            validationMessage && `${FORM_CLASSES.inputClass}-error_visible`,
           ])}
           id={`${props.id}-error`}
         >
