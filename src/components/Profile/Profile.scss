@@ -96,6 +96,34 @@
     text-align: right;
   }
 
+  &__status {
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 16px;
+
+    opacity: 0;
+
+    transition-duration: 0.5s;
+
+    &_visible {
+      opacity: 1;
+
+      animation: decay 3s ease-in-out 6s forwards;
+
+      @keyframes decay {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
   &__buttons {
     display: flex;
     flex-direction: column;
