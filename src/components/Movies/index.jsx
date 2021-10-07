@@ -17,10 +17,13 @@ import SearchForm from './SearchForm';
 
 import './Movies.scss';
 
-const defaultType = 'add';
-
-export default function Movies({ savedCards = [], type = defaultType, loggedIn, ...props }) {
-  const typeIsDefault = type === defaultType;
+export default function Movies({
+  savedCards = [],
+  type = MOVIES_CONFIG.defaultType,
+  loggedIn,
+  ...props
+}) {
+  const typeIsDefault = type === MOVIES_CONFIG.defaultType;
 
   useTitle(typeIsDefault ? PATHNAMES.search.title : PATHNAMES.saved.title);
 

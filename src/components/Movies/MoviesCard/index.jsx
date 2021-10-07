@@ -1,4 +1,4 @@
-import { API_DOMAIN } from '../../../utils/constants';
+import { API_DOMAIN, MOVIES_CONFIG } from '../../../utils/constants';
 import { classNames } from '../../../utils/toClassNames';
 
 import './MoviesCard.scss';
@@ -16,6 +16,8 @@ function durationDeclension(duration) {
 }
 
 export default function MoviesCard({ card, isSaved, type, ...props }) {
+  const typeIsDefault = type === MOVIES_CONFIG.defaultType;
+
   const buttonClassNames = ['moviescard__button', `moviescard__button_type_${type}`];
 
   const name = card.nameRU || card.nameEN;
@@ -35,7 +37,7 @@ export default function MoviesCard({ card, isSaved, type, ...props }) {
 
           <img
             className="moviescard__image"
-            src={type === 'add' ? `https://${API_DOMAIN}${card.image.url}` : card.image}
+            src={typeIsDefault ? `https://${API_DOMAIN}${card.image.url}` : card.image}
             alt={name}
           />
         </figure>
@@ -43,7 +45,7 @@ export default function MoviesCard({ card, isSaved, type, ...props }) {
 
       <input
         type="checkbox"
-        checked={type === 'add' ? isSaved : !isSaved}
+        checked={typeIsDefault ? isSaved : !isSaved}
         onChange={handleSaveOrDeleteClick}
         {...classNames(buttonClassNames)}
       />

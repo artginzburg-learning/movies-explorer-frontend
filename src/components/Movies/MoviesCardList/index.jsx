@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
-import { useTimeoutLimitedEffect } from '../../../hooks/useTimeoutLimitedEffect';
 
 import { useWindowSize } from '../../../hooks/useWindowSize';
+import { useTimeoutLimitedEffect } from '../../../hooks/useTimeoutLimitedEffect';
+
+import { MOVIES_CONFIG } from '../../../utils/constants';
 
 import MoviesCard from '../MoviesCard';
 
@@ -42,7 +44,7 @@ function getAppropriateLayout(currentWidth) {
 }
 
 export default function MoviesCardList({ cards, savedCards, type, ...props }) {
-  const typeIsDefault = type === 'add';
+  const typeIsDefault = type === MOVIES_CONFIG.defaultType;
 
   const cardsToDisplay = typeIsDefault ? cards : savedCards;
 

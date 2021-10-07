@@ -34,6 +34,7 @@ export const PATHNAMES = {
 
 export const MOVIES_CONFIG = {
   shortDuration: 40,
+  defaultType: 'add',
 };
 
 export const FORM_CLASSES = {
