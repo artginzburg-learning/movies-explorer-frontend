@@ -10,12 +10,14 @@ import Portfolio from './Portfolio';
 import Promo from './Promo';
 import Techs from './Techs';
 
+import './Main.scss';
+
 function Main({ loggedIn }) {
   useTitle('О проекте');
 
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header className="main__header" loggedIn={loggedIn} />
       <main>
         <Promo />
         <NavTab />

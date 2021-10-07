@@ -2,13 +2,15 @@ import { useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../images/logo.svg';
+
 import { PATHNAMES, PATHS } from '../../utils/constants';
+import { classNames } from '../../utils/toClassNames';
 
 import Navigation from '../Navigation';
 
 import './Header.scss';
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const openMenu = useCallback(() => {
@@ -22,7 +24,7 @@ function Header({ loggedIn }) {
   }, []);
 
   return (
-    <header className="header">
+    <header {...classNames(['header', className])}>
       <nav className="header__links">
         <Link to={PATHS.main} className="logo header__logo">
           <img className="logo__img" alt={PATHNAMES.global.title} src={logo} />

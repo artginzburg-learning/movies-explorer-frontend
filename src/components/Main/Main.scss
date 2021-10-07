@@ -1,0 +1,7 @@
+@import '../../styles/shared';
+
+.main__header {
+  @media screen and (max-width: $breakpoint-tablet) {
+    position: absolute;
+  }
+}
