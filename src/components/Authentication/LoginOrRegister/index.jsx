@@ -67,6 +67,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
                 type={additionalInput.name}
                 autoComplete={additionalInput.name}
                 {...additionalInput.props}
+                disabled={buttonIsSaving}
               />
             </label>
           )}
@@ -80,6 +81,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
               type={inputNames.email}
               autoComplete={inputNames.email}
               placeholder="mail@example.com"
+              disabled={buttonIsSaving}
             />
           </label>
           <label>
@@ -91,6 +93,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
               id={props.passwordAutocomplete}
               autoComplete={props.passwordAutocomplete}
               placeholder="n4Gorshke7idelKING"
+              disabled={buttonIsSaving}
             />
           </label>
         </div>

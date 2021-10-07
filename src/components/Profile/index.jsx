@@ -34,15 +34,21 @@ export default function Profile({ loggedIn, ...props }) {
 
   const { reset, ...form } = useValidatedForm(currentUser);
 
+  const [buttonIsSaving, setButtonIsSaving] = useState(false);
+  const buttonTitle = buttonIsSaving ? 'Сохранение...' : 'Редактировать';
+
   async function handleSubmit() {
-    const res = await sendApiUpdate(setCurrentUser, currentUser, form.getData(), 'updateUserInfo')
+    setButtonIsSaving(true);
+
+    return await sendApiUpdate(setCurrentUser, currentUser, form.getData(), 'updateUserInfo')
       .then(() => {
         setStatus('');
         setTimeout(() => {
-          setStatus('Данные успешно обновлены!');
+          setStatus('Изменения сохранены.');
         });
       })
       .catch((err) => {
+        form.isInvalid = true;
         setStatus('');
         setTimeout(() => {
           err.message
@@ -52,10 +58,10 @@ export default function Profile({ loggedIn, ...props }) {
               )
             : console.log(err);
         });
+      })
+      .finally(() => {
+        setButtonIsSaving(false);
       });
-    // props.onUpdateUser();
-    // console.log(res);
-    return res;
   }
 
   return (
@@ -74,6 +80,7 @@ export default function Profile({ loggedIn, ...props }) {
                   autoComplete="name"
                   {...form.register('name')}
                   placeholder="Арт Гинзбург"
+                  disabled={buttonIsSaving}
                 />
               </div>
             </label>
@@ -87,6 +94,7 @@ export default function Profile({ loggedIn, ...props }) {
                   autoComplete="email"
                   {...form.register('email')}
                   placeholder="art.ginzburg@ya.ru"
+                  disabled={buttonIsSaving}
                 />
               </div>
             </label>
@@ -95,8 +103,12 @@ export default function Profile({ loggedIn, ...props }) {
           <p {...classNames(['profile__status', status && 'profile__status_visible'])}>{status}</p>
 
           <div className="profile__buttons">
-            <button type="submit" disabled={form.isInvalid} className="profile__button">
-              Редактировать
+            <button
+              type="submit"
+              disabled={form.isInvalid || buttonIsSaving}
+              className="profile__button"
+            >
+              {buttonTitle}
             </button>
             <button
               onClick={props.handleSignOut}
