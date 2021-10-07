@@ -2,22 +2,22 @@ import { useCallback, useEffect } from 'react';
 
 import { Route, Switch, useHistory } from 'react-router-dom';
 
-import { API_DOMAIN, PATHS } from '../../utils/constants';
-import { scrollToTop } from '../../utils/scrollToTop';
+import { API_DOMAIN, PATHS } from '../utils/constants';
+import { scrollToTop } from '../utils/scrollToTop';
 
-import mainApi from '../../utils/MainApi';
+import mainApi from '../utils/MainApi';
 
-import useStateWithLocalStorage from '../../hooks/useStateWithLocalStorage';
-import useStateWithBase64 from '../../hooks/useStateWithBase64';
+import useStateWithLocalStorage from '../hooks/useStateWithLocalStorage';
+import useStateWithBase64 from '../hooks/useStateWithBase64';
 
-import { CurrentUserProvider, defaultUserState } from '../../contexts/CurrentUserContext';
+import { CurrentUserProvider, defaultUserState } from '../contexts/CurrentUserContext';
 
-import Authentication from '../Authentication';
-import Main from '../Main';
-import Movies from '../Movies';
-import NotFound from '../NotFound';
-import Profile from '../Profile';
-import ProtectedRoute from '../ProtectedRoute';
+import Authentication from './Authentication';
+import Main from './Main';
+import Movies from './Movies';
+import NotFound from './NotFound';
+import Profile from './Profile';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const history = useHistory();
