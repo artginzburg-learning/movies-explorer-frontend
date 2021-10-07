@@ -88,11 +88,9 @@ export default function MoviesCardList({ cards, savedCards, type, ...props }) {
         ))}
       </ul>
       {cardsLimited.length < cardsToDisplay.length && (
-        <div className="moviescards__more">
-          <button className="moviescards__more-button" type="button" onClick={displayMoreCards}>
-            Ещё
-          </button>
-        </div>
+        <button className="moviescards__more" type="button" onClick={displayMoreCards}>
+          Ещё
+        </button>
       )}
     </section>
   );

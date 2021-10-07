@@ -35,28 +35,25 @@
   }
 
   &__more {
-    display: flex;
-    justify-content: center;
-    padding: 50px 40px 80px;
+    @extend %default-link-effects;
 
-    &-button {
-      @extend %default-link-effects;
+    width: 320px;
+    max-width: calc(100% - 40px * 2);
+    height: 36px;
 
-      width: 320px;
-      height: 36px;
+    appearance: none;
+    padding: 0;
+    margin: 50px auto 80px;
+    display: block;
 
-      appearance: none;
-      padding: 0;
+    border: 1px solid $stroke-2;
+    border-radius: 6px;
 
-      border: 1px solid $stroke-2;
-      border-radius: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
 
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 15px;
-
-      background-color: transparent;
-      color: $global-text;
-    }
+    background-color: transparent;
+    color: $global-text;
   }
 }
