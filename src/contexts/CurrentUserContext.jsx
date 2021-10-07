@@ -3,8 +3,7 @@ import React from 'react';
 import api from '../utils/MainApi';
 
 const defaultUserState = {
-  name: 'Неизвестный',
-  about: 'Потеряно соединение с сервером',
+  name: 'Потеряно соединение',
 };
 
 const CurrentUserContext = React.createContext();

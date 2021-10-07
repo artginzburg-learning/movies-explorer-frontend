@@ -51,6 +51,55 @@
     color: $font-2;
   }
 
+  &__status {
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 16px;
+
+    color: $error;
+    opacity: 0;
+
+    transition-duration: 0.5s;
+
+    &_visible {
+      opacity: 1;
+      animation: headShake 1s ease-in-out, decay 2s ease-in-out 1s forwards;
+
+      @keyframes decay {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0.4;
+        }
+      }
+
+      @keyframes headShake {
+        0% {
+          transform: translateX(0);
+        }
+        6.5% {
+          transform: translateX(-6px) rotateY(-9deg);
+        }
+        18.5% {
+          transform: translateX(5px) rotateY(7deg);
+        }
+        31.5% {
+          transform: translateX(-3px) rotateY(-5deg);
+        }
+        43.5% {
+          transform: translateX(2px) rotateY(3deg);
+        }
+        50% {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
   &__signin {
     font-size: 14px;
     line-height: 17px;

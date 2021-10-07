@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.svg';
 
 import { pathNames, paths } from '../../../utils/constants';
+import { classNames } from '../../../utils/toClassNames';
 import { formClassesConfig } from '../../../utils/utils';
 
 import Form from '../../Form';
@@ -22,6 +23,7 @@ const inputNames = {
 
 const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
   const [buttonIsSaving, setButtonIsSaving] = useState(false);
+  const [status, setStatus] = useState('');
 
   const buttonTitle = buttonIsSaving ? `${props.buttonSavingTitle}...` : props.buttonTitle;
 
@@ -30,9 +32,18 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
 
     const { name, email, password } = form.getData();
 
-    props.handleSubmit(e, email, password, name).finally(() => {
-      setButtonIsSaving(false);
-    });
+    props
+      .handleSubmit(e, email, password, name)
+      .catch((err) => {
+        form.isInvalid = true;
+        setStatus('');
+        setTimeout(() => {
+          err.message ? setStatus(err.message) : console.log(err);
+        });
+      })
+      .finally(() => {
+        setButtonIsSaving(false);
+      });
   }
 
   return (
@@ -83,6 +94,8 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
             />
           </label>
         </div>
+
+        <p {...classNames(['auth__status', status && 'auth__status_visible'])}>{status}</p>
 
         <button
           type="submit"

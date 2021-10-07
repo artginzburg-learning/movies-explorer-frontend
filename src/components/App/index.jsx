@@ -112,15 +112,10 @@ function App() {
       });
   }, [handleLogin, setLoggedIn]);
 
-  function handleSubmitRegister(e_, email, password, name) {
-    return mainApi
-      .register(email, password, name)
-      .then(() => {
-        history.replace(paths.login);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  function handleSubmitRegister(e, email, password, name) {
+    return mainApi.register(email, password, name).then(() => {
+      handleSubmitLogin(e, email, password);
+    });
   }
 
   function handleSubmitLogin(e, email, password) {
@@ -128,19 +123,14 @@ function App() {
       return;
     }
 
-    return mainApi
-      .login(email, password)
-      .then((data) => {
-        if (data) {
-          e.target.reset();
+    return mainApi.login(email, password).then((data) => {
+      if (data) {
+        e.target.reset();
 
-          handleLogin(email);
-          history.push(paths.search);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        handleLogin(email);
+        history.push(paths.search);
+      }
+    });
   }
 
   function handleSignOut() {

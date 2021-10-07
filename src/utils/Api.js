@@ -5,7 +5,11 @@ export default class Api {
     this._credentials = options.credentials;
   }
 
-  _handleFetch = (res) => (res.ok ? res.json() : Promise.reject(res.statusText));
+  _handleFetch = async (res) => {
+    const parsed = await res.json();
+
+    return res.ok ? parsed : Promise.reject(parsed ?? res.statusText);
+  };
 
   _handleData = (result) => result.data ?? result;
 
