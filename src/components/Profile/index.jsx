@@ -9,7 +9,7 @@ import {
 import { useTitle } from '../../hooks/useTitle';
 import useValidatedForm from '../../hooks/useValidatedForm';
 
-import { FORM_CLASSES } from '../../utils/constants';
+import { FORM_CLASSES, PATTERNS } from '../../utils/constants';
 import { classNames } from '../../utils/toClassNames';
 
 import Header from '../Header';
@@ -93,6 +93,7 @@ export default function Profile({ loggedIn, ...props }) {
                   type="email"
                   autoComplete="email"
                   {...form.register('email')}
+                  pattern={PATTERNS.email}
                   placeholder="art.ginzburg@ya.ru"
                   disabled={buttonIsSaving}
                 />

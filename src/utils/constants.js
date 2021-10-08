@@ -41,3 +41,7 @@ export const FORM_CLASSES = {
   inputClass: 'form__input',
   submitButtonClass: 'form__button',
 };
+
+export const PATTERNS = {
+  email: '^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\\.)+[A-Za-z]+$',
+};

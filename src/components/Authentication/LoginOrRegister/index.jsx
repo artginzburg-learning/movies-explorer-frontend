@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../../images/logo.svg';
 
-import { PATHNAMES, PATHS, FORM_CLASSES } from '../../../utils/constants';
+import { PATHNAMES, PATHS, FORM_CLASSES, PATTERNS } from '../../../utils/constants';
 import { classNames } from '../../../utils/toClassNames';
 
 import Form from '../../Form';
@@ -76,6 +76,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
               {...propsForInputs}
               {...{ autoFocus: !additionalInput }}
               {...form.register(inputNames.email)}
+              pattern={PATTERNS.email}
               id={inputNames.email}
               type={inputNames.email}
               autoComplete={inputNames.email}
