@@ -32,23 +32,24 @@ export default function Profile({ loggedIn, ...props }) {
   const currentUser = useCurrentUser();
   const setCurrentUser = useCurrentUserDispatcher();
 
-  const { reset, ...form } = useValidatedForm(currentUser);
+  const form = useValidatedForm(currentUser);
 
   const [buttonIsSaving, setButtonIsSaving] = useState(false);
   const buttonTitle = buttonIsSaving ? 'Сохранение...' : 'Редактировать';
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
     setButtonIsSaving(true);
 
     return await sendApiUpdate(setCurrentUser, currentUser, form.getData(), 'updateUserInfo')
       .then(() => {
+        form.setIsInvalid(true);
         setStatus('');
         setTimeout(() => {
           setStatus('Изменения сохранены.');
         });
+        e.target.reset();
       })
       .catch((err) => {
-        form.isInvalid = true;
         setStatus('');
         setTimeout(() => {
           err.message
@@ -60,6 +61,7 @@ export default function Profile({ loggedIn, ...props }) {
         });
       })
       .finally(() => {
+        form.setIsInvalid(true);
         setButtonIsSaving(false);
       });
   }

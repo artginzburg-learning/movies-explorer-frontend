@@ -34,7 +34,7 @@ export default function useValidatedForm(initialData = {}) {
       setErrors(initialStates.errors);
       setIsInvalid(initialStates.isInvalid);
     },
-    [initialData]
+    [initialData],
   );
 
   return {
@@ -66,5 +66,6 @@ export default function useValidatedForm(initialData = {}) {
       return data;
     },
     isInvalid,
+    setIsInvalid,
   };
 }

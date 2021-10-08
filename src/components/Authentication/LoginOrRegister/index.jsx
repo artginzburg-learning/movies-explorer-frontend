@@ -34,7 +34,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
     props
       .handleSubmit(e, email, password, name)
       .catch((err) => {
-        form.isInvalid = true;
+        form.setIsInvalid(true);
         setStatus('');
         setTimeout(() => {
           err.message ? setStatus(err.message) : console.log(err);
