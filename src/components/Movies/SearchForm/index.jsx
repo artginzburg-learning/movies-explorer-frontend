@@ -2,15 +2,9 @@ import { MOVIES_CONFIG } from '../../../utils/constants';
 
 import './SearchForm.scss';
 
-export default function SearchForm({ filterShortState, queryState }) {
+export default function SearchForm({ updateQuery, filterShortState, queryState }) {
   const [filterShort, setFilterShort] = filterShortState;
-  const [query, setQuery] = queryState;
-
-  function updateQuery(e) {
-    e.preventDefault();
-
-    setQuery(e.target.value ?? e.target.search.value);
-  }
+  const [query] = queryState;
 
   function toggleFilterShort() {
     setFilterShort(!filterShort);
@@ -25,7 +19,6 @@ export default function SearchForm({ filterShortState, queryState }) {
               onBlur={updateQuery}
               defaultValue={query}
               name="search"
-              required
               className="searchform__input"
               type="search"
               placeholder="Фильм"

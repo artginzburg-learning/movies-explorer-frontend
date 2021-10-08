@@ -32,7 +32,7 @@ export default function Movies({
   const filterShortState = useState(false);
   const queryState = useStateWithLocalStorage('query', '');
 
-  const query = queryState[0];
+  const [query, setQuery] = queryState;
   const filterShort = filterShortState[0];
 
   const [cards, setCards] = useStateWithLocalStorage('cards', []);
@@ -76,14 +76,33 @@ export default function Movies({
   const filteredCards = cards.filter(filterShortIfNeeded).filter(filterSearch);
   const filteredSavedCards = personalSavedCards.filter(filterShortIfNeeded).filter(filterSearch);
 
-  const nothingFound = typeIsDefault ? !filteredCards.length : !filteredSavedCards.length;
+  const nothingFound =
+    query && (typeIsDefault ? !filteredCards.length : !filteredSavedCards.length);
+
+  function updateQuery(e) {
+    e.preventDefault();
+
+    const newQuery = e.target.value ?? e.target.search.value;
+
+    if (!newQuery) {
+      setErrorMessage('Нужно ввести ключевое слово');
+      return;
+    }
+
+    setErrorMessage('');
+    setQuery(newQuery);
+  }
 
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main>
-        <SearchForm filterShortState={filterShortState} queryState={queryState} />
-        {cards.length && nothingFound ? (
+        <SearchForm
+          updateQuery={updateQuery}
+          filterShortState={filterShortState}
+          queryState={queryState}
+        />
+        {nothingFound ? (
           <p className="movies__status">Ничего не найдено</p>
         ) : !query && typeIsDefault ? null : cards.length ? (
           <MoviesCardList
