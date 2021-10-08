@@ -30,7 +30,7 @@ export default function Movies({
   const currentUser = useCurrentUser();
 
   const filterShortState = useState(false);
-  const queryState = useState('');
+  const queryState = useStateWithLocalStorage('query', '');
 
   const query = queryState[0];
   const filterShort = filterShortState[0];

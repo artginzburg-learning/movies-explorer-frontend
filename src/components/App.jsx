@@ -139,6 +139,7 @@ function App() {
       .then(() => {
         setLoggedIn(false);
         history.replace(PATHS.main);
+        delete localStorage.query;
         scrollToTop();
       })
       .catch((err) => {

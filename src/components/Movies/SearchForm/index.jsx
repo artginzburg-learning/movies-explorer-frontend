@@ -4,7 +4,7 @@ import './SearchForm.scss';
 
 export default function SearchForm({ filterShortState, queryState }) {
   const [filterShort, setFilterShort] = filterShortState;
-  const setQuery = queryState[1];
+  const [query, setQuery] = queryState;
 
   function updateQuery(e) {
     e.preventDefault();
@@ -23,6 +23,7 @@ export default function SearchForm({ filterShortState, queryState }) {
           <label className="searchform__fieldset-container">
             <input
               onBlur={updateQuery}
+              defaultValue={query}
               name="search"
               required
               className="searchform__input"
