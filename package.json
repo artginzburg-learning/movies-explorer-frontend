@@ -8,9 +8,9 @@
     "url": "https://github.com/artginzburg"
   },
   "repository": "https://github.com/artginzburg-learning/movies-explorer-frontend",
-  "homepage": "https://artginzburg-learning.github.io/movies-explorer-frontend/",
+  "homepage": "https://deeplomka.nomoredomains.club",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "local": "PORT=80 HOST=art.local sudo -E react-scripts start",
     "isolated": "PORT=80 sudo -E react-scripts start",
     "build": "react-scripts build",

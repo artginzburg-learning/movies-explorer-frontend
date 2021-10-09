@@ -1,24 +1,24 @@
 import { memo } from 'react';
 
 import { useTitle } from '../../../hooks/useTitle';
-import { paths, pathNames } from '../../../utils/constants';
+import { PATHS, PATHNAMES } from '../../../utils/constants';
 
 import LoginOrRegister from '../LoginOrRegister';
 
 const defaultProps = {
   passwordAutocomplete: 'new-password',
   title: 'Добро пожаловать!',
-  buttonTitle: pathNames.register.action,
-  buttonSavingTitle: pathNames.register.title,
+  buttonTitle: PATHNAMES.register.action,
+  buttonSavingTitle: PATHNAMES.register.title,
   otherOption: {
     tagline: 'Уже зарегистрированы?',
-    path: paths.login,
-    title: pathNames.login.action,
+    path: PATHS.login,
+    title: PATHNAMES.login.action,
   },
 };
 
 const Register = memo((props) => {
-  useTitle(pathNames.register.title);
+  useTitle(PATHNAMES.register.title);
 
   return (
     <LoginOrRegister
@@ -29,6 +29,7 @@ const Register = memo((props) => {
         name: 'name',
         props: {
           placeholder: 'Арт',
+          pattern: '[A-Za-zА-ЯЁа-яё -]+',
         },
       }}
     />

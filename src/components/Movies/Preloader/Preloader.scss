@@ -1,0 +1,77 @@
+@import '../../../styles/colors';
+
+@keyframes preloader-inside-white {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes preloader-inside-red {
+  0% {
+    transform: scale(0, 0);
+  }
+  30% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+$preloader-size: 100px;
+$preloader-z-index: 10;
+$preloader-background-color: $switch-disabled; // was #ff6838
+
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: $preloader-z-index;
+  padding: 20px;
+
+  &__container {
+    width: $preloader-size;
+    height: $preloader-size;
+    position: relative;
+  }
+
+  &__round {
+    width: $preloader-size;
+    height: $preloader-size;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: $preloader-background-color;
+    border-radius: 50%;
+
+    &::after,
+    &::before {
+      content: '';
+      width: $preloader-size;
+      height: $preloader-size;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      border-radius: 50%;
+    }
+
+    &::after {
+      background-color: $global-text;
+      animation: preloader-inside-white 1s ease-in-out infinite;
+    }
+
+    &::before {
+      z-index: $preloader-z-index;
+      background-color: $preloader-background-color;
+      animation: preloader-inside-red 1s ease-in-out infinite;
+    }
+  }
+}

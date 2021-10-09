@@ -28,10 +28,6 @@ $header-logo-size: 38px;
 
   pointer-events: none;
 
-  @media screen and (max-width: $breakpoint-tablet) {
-    position: absolute;
-  }
-
   & * {
     pointer-events: all;
   }

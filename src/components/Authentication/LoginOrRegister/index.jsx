@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../../images/logo.svg';
 
-import { pathNames, paths } from '../../../utils/constants';
-import { formClassesConfig } from '../../../utils/utils';
+import { PATHNAMES, PATHS, FORM_CLASSES, PATTERNS } from '../../../utils/constants';
+import { classNames } from '../../../utils/toClassNames';
 
-import Form from './Form';
-import FormInput from './FormInput';
+import Form from '../../Form';
+import FormInput from '../../FormInput';
 
 const propsForInputs = {
   autoCorrect: 'off',
   spellCheck: false,
-  className: `${formClassesConfig.inputClass}_theme_dark`,
+  className: `${FORM_CLASSES.inputClass}_theme_dark`,
 };
 
 const inputNames = {
@@ -22,23 +22,33 @@ const inputNames = {
 
 const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
   const [buttonIsSaving, setButtonIsSaving] = useState(false);
+  const [status, setStatus] = useState('');
 
   const buttonTitle = buttonIsSaving ? `${props.buttonSavingTitle}...` : props.buttonTitle;
 
   function handleSubmit(e) {
     setButtonIsSaving(true);
 
-    const { email, password } = form.getData();
+    const { name, email, password } = form.getData();
 
-    props.handleSubmit(e, email, password).finally(() => {
-      setButtonIsSaving(false);
-    });
+    props
+      .handleSubmit(e, email, password, name)
+      .catch((err) => {
+        form.setIsInvalid(true);
+        setStatus('');
+        setTimeout(() => {
+          err.message ? setStatus(err.message) : console.log(err);
+        });
+      })
+      .finally(() => {
+        setButtonIsSaving(false);
+      });
   }
 
   return (
     <div className="auth">
-      <Link to={paths.main} className="logo auth__logo">
-        <img className="logo__img" alt={pathNames.global.title} src={logo} />
+      <Link to={PATHS.main} className="logo auth__logo">
+        <img className="logo__img" alt={PATHNAMES.global.title} src={logo} />
       </Link>
 
       <h2 className="auth__title">{props.title}</h2>
@@ -47,7 +57,7 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
         <div className="form__container">
           {additionalInput && (
             <label>
-              <p className="form__label">{additionalInput.title}</p>
+              <p className="auth__label">{additionalInput.title}</p>
               <FormInput
                 {...propsForInputs}
                 autoFocus
@@ -56,23 +66,26 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
                 type={additionalInput.name}
                 autoComplete={additionalInput.name}
                 {...additionalInput.props}
+                disabled={buttonIsSaving}
               />
             </label>
           )}
           <label>
-            <p className="form__label">E-mail</p>
+            <p className="auth__label">E-mail</p>
             <FormInput
               {...propsForInputs}
               {...{ autoFocus: !additionalInput }}
               {...form.register(inputNames.email)}
+              pattern={PATTERNS.email}
               id={inputNames.email}
               type={inputNames.email}
               autoComplete={inputNames.email}
               placeholder="mail@example.com"
+              disabled={buttonIsSaving}
             />
           </label>
           <label>
-            <p className="form__label">Пароль</p>
+            <p className="auth__label">Пароль</p>
             <FormInput
               {...propsForInputs}
               {...form.register(inputNames.password)}
@@ -80,14 +93,17 @@ const LoginOrRegister = memo(({ form, additionalInput, ...props }) => {
               id={props.passwordAutocomplete}
               autoComplete={props.passwordAutocomplete}
               placeholder="n4Gorshke7idelKING"
+              disabled={buttonIsSaving}
             />
           </label>
         </div>
 
+        <p {...classNames(['auth__status', status && 'auth__status_visible'])}>{status}</p>
+
         <button
           type="submit"
           disabled={form.isInvalid || buttonIsSaving}
-          className={`auth__button ${formClassesConfig.submitButtonClass} ${formClassesConfig.submitButtonClass}_theme_dark`}
+          className={`auth__button ${FORM_CLASSES.submitButtonClass} ${FORM_CLASSES.submitButtonClass}_theme_dark`}
         >
           {buttonTitle}
         </button>
