@@ -1,7 +1,7 @@
 # movies-explorer-frontend
 Фронтенд-часть приложения дипломного проекта `MoviesExplorer` со следующими возможностями: авторизации и регистрации пользователей, операции с фильмами и пользователями.
 
-## Количество баллов: 100 <sup>[#1](https://github.com/artginzburg/movies-explorer-frontend/pull/1)</sup>
+## Количество баллов: 100 <sup>[#1](https://github.com/artginzburg/movies-explorer-frontend/pull/1)</sup> <sup>[#4](https://github.com/artginzburg-learning/movies-explorer-frontend/pull/4)</sup>
 
 ### Ссылки
 
