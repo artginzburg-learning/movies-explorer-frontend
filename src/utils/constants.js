@@ -45,3 +45,8 @@ export const FORM_CLASSES = {
 export const PATTERNS = {
   email: '^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\\.)+[A-Za-z]+$',
 };
+
+export const EXTERNAL_LINK_PROPS = {
+  target: '_blank',
+  rel: 'noreferrer',
+};

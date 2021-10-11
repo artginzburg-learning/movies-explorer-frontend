@@ -1,3 +1,5 @@
+import { EXTERNAL_LINK_PROPS } from '../../../utils/constants';
+
 import './Techs.scss';
 
 const technologies = [
@@ -25,8 +27,7 @@ function Techs() {
               <a
                 className="techs__list-link"
                 href={`https://github.com/topics/${(item[1] ?? item[0]).toLowerCase()}`}
-                target="_blank"
-                rel="noreferrer"
+                {...EXTERNAL_LINK_PROPS}
               >
                 {item[0]}
               </a>

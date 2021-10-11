@@ -1,4 +1,4 @@
-import { API_DOMAIN, MOVIES_CONFIG } from '../../../utils/constants';
+import { API_DOMAIN, EXTERNAL_LINK_PROPS, MOVIES_CONFIG } from '../../../utils/constants';
 import { classNames } from '../../../utils/toClassNames';
 import { declOfNum } from '../../../utils/declOfNum';
 
@@ -21,7 +21,11 @@ export default function MoviesCard({ card, isSaved, type, ...props }) {
 
   return (
     <li className="moviescard">
-      <a className="moviescard__link" href={card.trailerLink} target="_blank" rel="noreferrer">
+      <a
+        className="moviescard__link"
+        href={typeIsDefault ? card.trailerLink : card.trailer}
+        {...EXTERNAL_LINK_PROPS}
+      >
         <figure className="moviescard__figure">
           <div className="moviescard__text-container">
             <figcaption className="moviescard__title">{name}</figcaption>

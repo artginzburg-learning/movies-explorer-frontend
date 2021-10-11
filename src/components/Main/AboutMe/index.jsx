@@ -1,4 +1,8 @@
+import { author } from '../../../../package.json';
+
 import student from '../../../images/student.jpg';
+import { EXTERNAL_LINK_PROPS } from '../../../utils/constants';
+
 import './AboutMe.scss';
 
 const birthday = new Date(2002, 3, 25);
@@ -15,7 +19,7 @@ function getAge(birthDate) {
 
 const myAge = getAge(birthday);
 
-function AboutMe() {
+export default function AboutMe() {
   return (
     <section className="aboutme" id="student">
       <article>
@@ -37,20 +41,10 @@ function AboutMe() {
               </p>
             </div>
             <div className="aboutme__links">
-              <a
-                className="aboutme__link"
-                href="https://t.me/ginzart"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="aboutme__link" href="https://t.me/ginzart" {...EXTERNAL_LINK_PROPS}>
                 Telegram
               </a>
-              <a
-                className="aboutme__link"
-                href="https://github.com/artginzburg"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="aboutme__link" href={author.url} {...EXTERNAL_LINK_PROPS}>
                 GitHub
               </a>
             </div>
@@ -60,5 +54,3 @@ function AboutMe() {
     </section>
   );
 }
-
-export default AboutMe;
