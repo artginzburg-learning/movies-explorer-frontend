@@ -5,4 +5,10 @@
   -webkit-tap-highlight-color: transparent;
 
   @extend %default-link-effects;
+
+  @media (hover: hover)  {
+    &:hover {
+      transform: rotate(0.5turn);
+    }
+  }
 }
