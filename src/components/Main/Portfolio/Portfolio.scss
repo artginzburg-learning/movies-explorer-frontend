@@ -58,6 +58,19 @@ $portfolio-padding: 20px;
 
       content: '↗';
       line-height: 200%;
+
+      transition-property: transform;
+      @extend %default-link-transition-prefs;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateX(5px);
+
+        &::after {
+          transform: rotate(45deg + 1turn) translateX(-7px);
+        }
+      }
     }
   }
 }
